@@ -1,0 +1,49 @@
+---
+const formaciones = [
+  {
+    name: "Masoterapia",
+    image: "https://cenakin.cl/images/iconos/masoterapia.svg",
+    color: "bg-blue-700",
+    slug: "masoterapia",
+  },
+  {
+    name: "Salud",
+    image: "https://cenakin.cl/images/iconos/salud.svg",
+    color: "bg-green-700",
+    slug: "salud",
+  },
+  {
+    name: "Marketing",
+    image: "https://cenakin.cl/images/iconos/marketing.svg",
+    color: "bg-violet-700",
+    slug: "marketing",
+  },
+  {
+    name: "Formaciones Online",
+    image: "https://cenakin.cl/images/iconos/online.svg",
+    color: "bg-green-700",
+    slug: "online",
+  },
+];
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    formaciones.map((formacion) => (
+      <li>
+        <a href={`/categorias/${formacion.slug}`} class="list-row">
+          <div>
+            <img
+              src={formacion.image}
+              alt={formacion.name}
+              class="size-10 rounded-box"
+            />
+          </div>
+          <div>
+            <span class="text-base-content">{formacion.name}</span>
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>

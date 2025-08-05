@@ -1,11 +1,26 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "@layouts/Layout.astro";
+import type { Seo } from "@interfaces/Seo";
+import Cabecera from "@components/inicio/Cabecera.astro";
+import Formaciones from "@components/inicio/Formaciones.astro";
+import Marquesina from "@components/extras/Marquesina.astro";
+import Faq from "@components/extras/Faq.astro";
+import Contacto from "@components/extras/Contacto.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const seo: Seo = {
+  title: "Cenakin OTEC Cursos Viña del Mar, Chile",
+  description:
+    "Un nuevo método de enseñanza para distintos cursos, con materiales incluidos, docentes kinesiólogos y calidad de servicio Viña del Mar, Chile.",
+  url: "https://cenakin.cl",
+  image: "https://cenakin.cl/images/logo_completo.jpg",
+  keywords: ["cursos", "salud", "masoterapia", "viña del mar", "chile", "otec"],
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout dataPag={seo}>
+  <Cabecera />
+  <Formaciones />
+  <Marquesina />
+  <Faq />
+  <Contacto />
 </Layout>

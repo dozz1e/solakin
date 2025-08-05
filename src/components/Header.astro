@@ -1,0 +1,64 @@
+---
+import Container from "../layouts/Container.astro";
+---
+
+<div class="bg-base-100">
+  <Container>
+    <div class="navbar">
+      <div class="navbar-start">
+        <a href="/" class="btn btn-ghost text-xl">
+          <img src="/images/banner_ng.svg" alt="Logo Cenakin" class="w-30" />
+        </a>
+        <div class="relative hidden">
+          <label class="input">
+            <svg
+              class="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input
+              id="search"
+              type="search"
+              class="glow"
+              placeholder="Busca tú curso"
+            />
+          </label>
+          <div id="datalist" class="absolute z-1 hidden w-full bg-white p-2">
+            <div>masoterapia</div>
+            <div>banana</div>
+            <div>cherry</div>
+            <div>date</div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <a
+          href="https://aulavirtualcenakin.com"
+          class="btn btn-primary uppercase">Aula Virtual</a
+        >
+      </div>
+    </div>
+  </Container>
+</div>
+
+<style></style>
+
+<script>
+  const input = document.getElementById("search");
+  const datalist = document.getElementById("datalist");
+
+  input.addEventListener("click", () => {
+    datalist.style.display = "block";
+  });
+</script>
