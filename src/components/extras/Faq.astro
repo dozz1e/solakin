@@ -1,1 +1,108 @@
-<h2>Faq</h2>
+---
+import Container from "@layouts/Container.astro";
+
+const dudas = [
+  {
+    pregunta:
+      "Me gustaría saber si sus cursos de masajes están reconocidos por el Ministerio de Salud.",
+    respuesta:
+      "No se requiere, hasta la fecha, el Minsal, no exige una prueba de conocimientos para masoterapia.",
+  },
+  {
+    pregunta:
+      "Me gustaría saber si sus cursos están reconocidos o acreditados por alguna institución.",
+    respuesta:
+      "Otec Cenakin está reconocida por SENCE en la resolución N° 19606.",
+  },
+  {
+    pregunta:
+      "¿Cuál es el campo laboral para los egresados de sus cursos y capacitaciones?",
+    respuesta:
+      "El campo laboral abarca empresas, emprendimientos, instituciones, organismos. También se puede ejercer la profesión de manera independiente.",
+  },
+  {
+    pregunta: "¿Estos cursos me sirven para emprender?",
+    respuesta:
+      "Totalmente. El contenido y el conocimiento de nuestros diferentes cursos sirven para construir un emprendimiento y trabajar de forma independiente.",
+  },
+  {
+    pregunta:
+      "¿Piden algún requisito mínimo para realizar los cursos y diplomados?",
+    respuesta:
+      "Si, egresado de enseñanza media y mayor de 18 años. En algunos cursos y diplomados se incluyen otros requisitos que aparecerán en la programación de estos.",
+  },
+  {
+    pregunta: "¿Cuál es la duración de los cursos y diplomados?",
+    respuesta:
+      "En general nuestros cursos y diplomados, tienen las siguientes duraciones: 8 horas, 20 horas, 32 horas, 100 horas, 150 horas y 200 horas. Estos serán especificados en la programación de cada uno de ellos.",
+  },
+];
+---
+
+<div class="bg-neutral-100 py-8">
+  <Container>
+    <div class="py-8">
+      <h2 class="text-2xl font-bold mb-2">Preguntas Frecuentes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="col-span-1">
+          <div class="collapse bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-1" />
+            <div class="collapse-title font-semibold bg-sky-600 text-white">
+              {dudas[0].pregunta}
+            </div>
+            <div class="collapse-content text-sm">
+              <p class="pt-2">{dudas[0].respuesta}</p>
+            </div>
+          </div>
+          <div class="collapse bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-1" />
+            <div class="collapse-title font-semibold bg-sky-600 text-white">
+              {dudas[1].pregunta}
+            </div>
+            <div class="collapse-content text-sm">
+              <p class="pt-2">{dudas[1].respuesta}</p>
+            </div>
+          </div>
+          <div class="collapse bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-1" />
+            <div class="collapse-title font-semibold bg-sky-600 text-white">
+              {dudas[2].pregunta}
+            </div>
+            <div class="collapse-content text-sm">
+              <p class="pt-2">{dudas[2].respuesta}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="collapse bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-1" />
+            <div class="collapse-title font-semibold bg-sky-600 text-white">
+              {dudas[3].pregunta}
+            </div>
+            <div class="collapse-content text-sm">
+              <p class="pt-2">{dudas[3].respuesta}</p>
+            </div>
+          </div>
+          <div class="collapse bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-1" />
+            <div class="collapse-title font-semibold bg-sky-600 text-white">
+              {dudas[4].pregunta}
+            </div>
+            <div class="collapse-content text-sm">
+              <p class="pt-2">{dudas[4].respuesta}</p>
+            </div>
+          </div>
+          <div class="collapse bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-1" />
+            <div class="collapse-title font-semibold bg-sky-600 text-white">
+              {dudas[5].pregunta}
+            </div>
+            <div class="collapse-content text-sm">
+              <p class="pt-2">{dudas[5].respuesta}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</div>

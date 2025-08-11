@@ -1,64 +1,36 @@
 ---
-import Container from "../layouts/Container.astro";
+import Container from "@layouts/Container.astro";
+import { menu } from "@lib/menu.ts";
 ---
 
-<div class="bg-base-100">
-  <Container>
-    <div class="navbar">
+<div>
+  <div class="navbar fixed w-full top-0 z-10 bg-base-100 shadow-md">
+    <Container className="flex">
       <div class="navbar-start">
-        <a href="/" class="btn btn-ghost text-xl">
+        <a href="/" class="text-xl">
           <img src="/images/banner_ng.svg" alt="Logo Cenakin" class="w-30" />
         </a>
-        <div class="relative hidden">
-          <label class="input">
-            <svg
-              class="h-[1em] opacity-50"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2.5"
-                fill="none"
-                stroke="currentColor"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.3-4.3"></path>
-              </g>
-            </svg>
-            <input
-              id="search"
-              type="search"
-              class="glow"
-              placeholder="Busca tú curso"
-            />
-          </label>
-          <div id="datalist" class="absolute z-1 hidden w-full bg-white p-2">
-            <div>masoterapia</div>
-            <div>banana</div>
-            <div>cherry</div>
-            <div>date</div>
-          </div>
-        </div>
       </div>
       <div class="navbar-end">
+        <ul class="hidden md:flex md:gap-2 md:mr-2">
+          {
+            menu.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="btn btn-ghost uppercase hover:bg-sky-600 hover:text-white transition-colors"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
         <a
           href="https://aulavirtualcenakin.com"
           class="btn btn-primary uppercase">Aula Virtual</a
         >
       </div>
-    </div>
-  </Container>
+    </Container>
+  </div>
 </div>
-
-<style></style>
-
-<script>
-  const input = document.getElementById("search");
-  const datalist = document.getElementById("datalist");
-
-  input.addEventListener("click", () => {
-    datalist.style.display = "block";
-  });
-</script>

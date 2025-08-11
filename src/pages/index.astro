@@ -6,6 +6,7 @@ import Formaciones from "@components/inicio/Formaciones.astro";
 import Marquesina from "@components/extras/Marquesina.astro";
 import Faq from "@components/extras/Faq.astro";
 import Contacto from "@components/extras/Contacto.astro";
+import Info from "@components/extras/Info.astro";
 
 const seo: Seo = {
   title: "Cenakin OTEC Cursos Viña del Mar, Chile",
@@ -13,14 +14,16 @@ const seo: Seo = {
     "Un nuevo método de enseñanza para distintos cursos, con materiales incluidos, docentes kinesiólogos y calidad de servicio Viña del Mar, Chile.",
   url: "https://cenakin.cl",
   image: "https://cenakin.cl/images/logo_completo.jpg",
-  keywords: ["cursos", "salud", "masoterapia", "viña del mar", "chile", "otec"],
 };
 ---
 
 <Layout dataPag={seo}>
   <Cabecera />
+  <Info />
   <Formaciones />
-  <Marquesina />
+  <Marquesina
+    texto="empoderamiento - profesionalismo - expansión - liderazgo -"
+  />
   <Faq />
   <Contacto />
 </Layout>

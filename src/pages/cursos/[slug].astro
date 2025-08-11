@@ -1,0 +1,32 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@layouts/Container.astro";
+import { Seo } from "@interfaces/Seo";
+import { cursos } from "@lib/cursos";
+
+export const getStaticPaths = (() => {
+  return cursos.map((curso) => ({
+    params: { slug: curso.slug },
+    props: { curso },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  curso: any;
+}
+
+const curso = Astro.props.curso;
+
+const seo: Seo = {
+  title: `${curso.name} - Cenakin OTEC Cursos Viña del Mar, Chile`,
+  description: curso.yoast_head_json.description,
+  url: `https://cenakin.cl/cursos/${curso.slug}`,
+  image: `https://cenakin.cl/images/cursos/${curso.slug}/1@1x.webp`,
+};
+---
+
+<Layout dataPag={seo}>
+  <Container>
+    <h1>{curso.name}</h1>
+  </Container>
+</Layout>

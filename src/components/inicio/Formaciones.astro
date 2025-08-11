@@ -1,49 +1,78 @@
 ---
+import Container from "@layouts/Container.astro";
+import { masoterapia, salud, marketing, online } from "@lib/cursos.ts";
+import {
+  ArrowRight,
+  CircuitBoard,
+  BookHeart,
+  ChartSpline,
+  HandHeart,
+} from "lucide-astro";
+
 const formaciones = [
   {
     name: "Masoterapia",
-    image: "https://cenakin.cl/images/iconos/masoterapia.svg",
-    color: "bg-blue-700",
+    color: "oklch(58% 0.158 241.966)",
+    borderColor: "border-sky-600",
     slug: "masoterapia",
   },
   {
     name: "Salud",
-    image: "https://cenakin.cl/images/iconos/salud.svg",
-    color: "bg-green-700",
+    color: "oklch(57.7% .245 27.325)",
+    borderColor: "border-red-600",
     slug: "salud",
   },
   {
     name: "Marketing",
-    image: "https://cenakin.cl/images/iconos/marketing.svg",
-    color: "bg-violet-700",
+    color: "oklch(49.1% .27 292.581)",
+    borderColor: "border-violet-600",
     slug: "marketing",
   },
   {
     name: "Formaciones Online",
-    image: "https://cenakin.cl/images/iconos/online.svg",
-    color: "bg-green-700",
+    color: "oklch(52.7% .154 150.069)",
+    borderColor: "border-green-600",
     slug: "online",
   },
 ];
 ---
 
-<ul class="list bg-base-100 rounded-box shadow-md">
-  {
-    formaciones.map((formacion) => (
-      <li>
-        <a href={`/categorias/${formacion.slug}`} class="list-row">
-          <div>
-            <img
-              src={formacion.image}
-              alt={formacion.name}
-              class="size-10 rounded-box"
-            />
-          </div>
-          <div>
-            <span class="text-base-content">{formacion.name}</span>
-          </div>
-        </a>
-      </li>
-    ))
-  }
-</ul>
+<Container>
+  <div id="formaciones" class="pt-16">
+    <h2 class="text-2xl font-bold">Nuestras Formaciones</h2>
+    <ul
+      class="my-2 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 xl:gap-4"
+    >
+      {
+        formaciones.map((formacion, i) => (
+          <li
+            class={`col-span-1 shadow-md rounded-md border-4 bg-neutral-100 hover:bg-neutral-800 hover:text-neutral-100 transition-colors hover:shadow-xl ${formacion.borderColor} hover:border-neutral-800`}
+          >
+            <a
+              href={`/categorias/${formacion.slug}`}
+              class="flex justify-between items-center p-4"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="flex items-center rounded-full w-12 h-12 justify-center text-white"
+                  style={{
+                    backgroundColor: formacion.color,
+                  }}
+                >
+                  {i === 0 ? <HandHeart /> : null}
+                  {i === 1 ? <BookHeart /> : null}
+                  {i === 2 ? <ChartSpline /> : null}
+                  {i === 3 ? <CircuitBoard /> : null}
+                </div>
+                <div class="flex items-center text-xl">{formacion.name}</div>
+              </div>
+              <div class="flex items-center">
+                <ArrowRight color={formacion.color} />
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Container>

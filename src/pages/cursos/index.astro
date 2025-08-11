@@ -1,0 +1,27 @@
+---
+import { masoterapia } from "@lib/cursos";
+import Layout from "@layouts/Layout.astro";
+import Container from "@layouts/Container.astro";
+import { Seo } from "@interfaces/Seo";
+import Card from "@components/extras/Card.astro";
+
+const seo: Seo = {
+  title: "Cursos Cenakin OTEC Viña del Mar, Chile",
+  description:
+    "Un nuevo método de enseñanza para distintos cursos, con materiales incluidos, docentes kinesiólogos y calidad de servicio Viña del Mar, Chile.",
+  url: "https://cenakin.cl/cursos",
+  image: "https://cenakin.cl/images/logo_completo.jpg",
+};
+---
+
+<Layout dataPag={seo}>
+  <Container>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {
+        masoterapia.map((curso: any) => {
+          return <Card slug={curso.slug} title={curso.name} />;
+        })
+      }
+    </div>
+  </Container>
+</Layout>

@@ -30,9 +30,6 @@ const { title, description, url, image, keywords } = Astro.props
           image: image,
         },
       }}
-      extend={{
-        meta: [{ name: "keywords", content: keywords.join(", ") }],
-      }}
     />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -44,9 +41,11 @@ const { title, description, url, image, keywords } = Astro.props
       rel="stylesheet"
     />
   </head>
-  <body class="bg-base-200 text-base-content">
+  <body class="bg-white">
     <Header />
-    <slot />
+    <main class="mt-16">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

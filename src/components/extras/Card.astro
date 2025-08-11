@@ -1,0 +1,26 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+}
+
+const { slug, title } = Astro.props;
+---
+
+<a href={`/cursos/${slug}`} class="col-span-1">
+  <div
+    class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow duration-300"
+  >
+    <figure>
+      <img
+        src={`https://cenakin.cl/images/cursos/${slug}/1@1x.webp`}
+        alt={title}
+        class="hover:scale-110 transition-transform duration-300"
+      />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">{title}</h2>
+      <div class="card-actions justify-end">HOIla y Chao</div>
+    </div>
+  </div>
+</a>

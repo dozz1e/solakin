@@ -1,4 +1,24 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, corporate;
+  themes:
+    light --default,
+    dark --prefersdark,
+    corporate;
+}
+
+:root {
+  --celeste: #0098ff;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
 }

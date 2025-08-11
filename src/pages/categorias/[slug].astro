@@ -1,0 +1,51 @@
+---
+import { categorias, masoterapia, marketing, online, salud } from "@lib/cursos";
+import type { Seo } from "@interfaces/Seo";
+import Layout from "@layouts/Layout.astro";
+import Container from "@layouts/Container.astro";
+import Header from "@components/categorias/Header.astro";
+import Card from "@components/extras/Card.astro";
+
+export const getStaticPaths = (() => {
+  return categorias.map((categoria) => ({
+    params: { slug: categoria.slug },
+    props: { categoria },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  categoria: any;
+}
+
+const categoria = Astro.props.categoria;
+const seo: Seo = {
+  title: categoria.name,
+  description: categoria.description,
+  url: `https://cenakin.cl/categorias/${categoria.slug}`,
+  image: "https://cenakin.cl/images/logo_completo.jpg",
+};
+
+const cursos =
+  categoria.slug === "masoterapia"
+    ? masoterapia
+    : categoria.slug === "marketing"
+      ? marketing
+      : categoria.slug === "online"
+        ? online
+        : categoria.slug === "salud"
+          ? salud
+          : [];
+---
+
+<Layout dataPag={seo}>
+  <Container>
+    <Header titulo={categoria.name} descripcion={categoria.descripcion} />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {
+        cursos.map((curso: any) => {
+          return <Card slug={curso.slug} title={curso.name} />;
+        })
+      }
+    </div>
+  </Container>
+</Layout>
