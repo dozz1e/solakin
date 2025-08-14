@@ -1,0 +1,48 @@
+---
+import ReservaPrecio from "@components/cursos/ReservaPrecio.astro";
+
+interface Props {
+  precio: number;
+  descuento?: number;
+  id: number;
+}
+const { precio, descuento, id } = Astro.props;
+
+const moneda = (valor) => {
+  const formatterPeso = new Intl.NumberFormat("es-CL", {
+    style: "currency",
+    currency: "CLP",
+    minimumFractionDigits: 0,
+  });
+  return formatterPeso.format(valor);
+};
+---
+
+<div
+  class="stats stats-vertical lg:stats-horizontal shadow grid grid-cols-1 lg:grid-cols-2 gap-4"
+>
+  <div class="stat col-span-1">
+    <div class="stat-title">Valores y Formas de pago</div>
+    <h4 class="font-bold text-2xl">Arancel Total</h4>
+    <div class="stat-value text-sky-600 text-5xl text-center p-6">
+      {moneda(precio)} CLP
+    </div>
+    <div>
+      <button
+        id="compra1"
+        class="btn bg-sky-600 text-white w-full py-6 uppercase"
+        aria-data-id={id}
+      >
+        Inscríbete aquí
+      </button>
+    </div>
+  </div>
+
+  <div class="stat col-span-1">
+    <div class="stat-title">Medios de Pago</div>
+    <span>
+      Tarjeta de débito o tarjeta de crédito, hasta 6 cuotas precio contado.
+    </span>
+    <img src="/images/medios-pago.png" alt="Medios de pago" />
+  </div>
+</div>

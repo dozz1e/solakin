@@ -3,6 +3,17 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@layouts/Container.astro";
 import { Seo } from "@interfaces/Seo";
 import { cursos } from "@lib/cursos";
+import Cabecera from "@components/cursos/Cabecera.astro";
+import Introduccion from "@components/cursos/Introduccion.astro";
+import Info from "@components/extras/Info.astro";
+import FeDoCu from "@components/cursos/FeDoCu.astro";
+import Whats from "@components/cursos/Whats.astro";
+import InObj from "@components/cursos/InObj.astro";
+import RePlan from "@components/cursos/RePlan.astro";
+import Video from "@components/cursos/Video.astro";
+import Reserva from "@components/cursos/Reserva.astro";
+import ReservaPrecio from "@components/cursos/ReservaPrecio.astro";
+import DatosContacto from "@components/extras/DatosContacto.astro";
 
 export const getStaticPaths = (() => {
   return cursos.map((curso) => ({
@@ -14,6 +25,15 @@ export const getStaticPaths = (() => {
 interface Props {
   curso: any;
 }
+
+const moneda = (valor) => {
+  const formatterPeso = new Intl.NumberFormat("es-CL", {
+    style: "currency",
+    currency: "CLP",
+    minimumFractionDigits: 0,
+  });
+  return formatterPeso.format(valor);
+};
 
 const curso = Astro.props.curso;
 
@@ -27,6 +47,59 @@ const seo: Seo = {
 
 <Layout dataPag={seo}>
   <Container>
-    <h1>{curso.name}</h1>
+    <Cabecera titulo={curso.name} slug={curso.slug} id={curso.id} />
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 my-8">
+      <div class="col-span-1 lg:col-span-2">
+        <div class="grid grid-cols-1 gap-4">
+          <Introduccion texto={curso.description} />
+          <Info />
+          <FeDoCu
+            docentes={curso.acf.profesores}
+            f_inicio={curso.acf.fecha_inicio}
+            f_termino={curso.acf.fecha_termino}
+            formato={curso.acf.formato}
+          />
+          <Whats />
+          <InObj incluye={curso.acf.incluye} objetivos={curso.acf.objetivo} />
+          <RePlan
+            requisitos={curso.acf.dirigido}
+            plan={curso.acf.plan_estudios}
+          />
+          <Video />
+          <Reserva
+            precio={curso.regular_price}
+            descuento={curso.sale_price}
+            id={curso.id}
+          />
+        </div>
+      </div>
+      <aside class="col-span-1 flex flex-col gap-4">
+        <DatosContacto />
+        <div class="card bg-base-100 shadow-xl p-4">
+          <ReservaPrecio
+            precio={curso.regular_price}
+            descuento={curso.sale_price}
+            id={curso.id}
+          />
+        </div>
+      </aside>
+    </div>
   </Container>
 </Layout>
+
+<script>
+  const btnComprar1 = document.getElementById("compra1");
+  const btnComprar2 = document.getElementById("compra2");
+  const idCurso1 = btnComprar1.getAttribute("aria-data-id");
+  const idCurso2 = btnComprar2.getAttribute("aria-data-id");
+  btnComprar1.addEventListener("click", (e) => {
+    e.preventDefault();
+    // fbq("track", "AddToCart");
+    window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso1}`;
+  });
+  btnComprar2.addEventListener("click", (e) => {
+    e.preventDefault();
+    // fbq("track", "AddToCart");
+    window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso2}`;
+  });
+</script>

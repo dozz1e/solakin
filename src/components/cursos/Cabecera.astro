@@ -1,0 +1,31 @@
+---
+import { Download } from "lucide-astro";
+const { titulo, slug, id } = Astro.props;
+---
+
+<div
+  class="hero bg-no-repeat mt-2 rounded-lg"
+  style={`background-image: url(https://cenakin.cl/images/cursos/${slug}/1@3x.webp);`}
+>
+  <div class="hero-overlay rounded-lg"></div>
+  <div class="hero-content text-neutral-content">
+    <div class="max-w-md flex flex-col items-center justify-center">
+      <h1 class="mb-5 text-6xl font-bold text-center">{titulo}</h1>
+      <a
+        href={`https://cenakin.cl/pdfs/${id}.pdf`}
+        class="btn border-none bg-violet-600 text-white hover:bg-violet-900 hover:text-white transition-colors uppercase btn-lg"
+        target="_blank"><Download /> Descargar Programa</a
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero {
+    background-position: center center;
+    height: 600px;
+    h1 {
+      text-shadow: 1px 1px 1px black;
+    }
+  }
+</style>

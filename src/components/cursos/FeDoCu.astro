@@ -1,0 +1,66 @@
+---
+interface Props {
+  docentes: string[];
+  f_inicio?: string;
+  f_termino?: string;
+  formato: string;
+}
+const { docentes, f_inicio, f_termino, formato } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="card bg-base-100 shadow-sm col-span-1">
+    <div class="card-body prose">
+      <h3 class="text-xl font-bold text-sky-600">Fechas y Horarios</h3>
+      <div set:html={formato} />
+      <div class="flex gap-2 mt-4">
+        {
+          f_inicio && (
+            <p class="bg-sky-600 text-white uppercase p-2">
+              Fecha Inicio: <span class="font-bold">{f_inicio}</span>
+            </p>
+          )
+        }
+        {
+          f_termino && (
+            <p class="bg-sky-600 text-white uppercase p-2">
+              Fecha Termino: <span class="font-bold">{f_termino}</span>
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </div>
+  <div class="card bg-base-100 shadow-sm col-span-1">
+    <div class="card-body prose">
+      <h3 class="text-xl font-bold text-sky-600">Reserva de Cupo</h3>
+      <span> Para reservar el cupo se realizan los siguientes pasos: </span>
+      <ul class="list-disc pl-4">
+        <li>
+          Pagar el valor completo del curso o capacitación desde el botón
+          comprar curso.
+        </li>
+        <li>
+          Una vez que se finalice el pago, recibiremos una notificación de
+          inmediato. Nos pondremos en contacto contigo, en nuestros horarios de
+          atención, y continuaremos con el proceso de inscripción.
+        </li>
+        <li>
+          Si deseas realizar tu inscripción por transferencia o en nuestras
+          oficinas, déjanos un mensaje en nuestro whatsapp o correo eléctronico
+          para entregarte los pasos a seguir.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="card bg-base-100 shadow-sm col-span-1 md:col-span-2">
+    <div class="card-body prose">
+      <h3 class="text-xl font-bold text-sky-600">Docentes</h3>
+      {
+        docentes.map((docente) => {
+          return <div class="p-2" set:html={docente} />;
+        })
+      }
+    </div>
+  </div>
+</div>

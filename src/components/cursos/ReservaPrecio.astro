@@ -1,0 +1,35 @@
+---
+interface Props {
+  precio: number;
+  descuento?: number;
+  id: number;
+}
+
+const { precio, id, descuento } = Astro.props;
+
+const moneda = (valor) => {
+  const formatterPeso = new Intl.NumberFormat("es-CL", {
+    style: "currency",
+    currency: "CLP",
+    minimumFractionDigits: 0,
+  });
+  return formatterPeso.format(valor);
+};
+---
+
+<div class="stat col-span-1">
+  <div class="stat-title">Valores y Formas de pago</div>
+  <h4 class="font-bold text-2xl">Arancel Total</h4>
+  <div class="stat-value text-sky-600 text-5xl text-center p-6">
+    {moneda(precio)} CLP
+  </div>
+  <div>
+    <button
+      id="compra2"
+      class="btn bg-sky-600 text-white w-full py-6 uppercase"
+      aria-data-id={id}
+    >
+      Inscríbete aquí
+    </button>
+  </div>
+</div>

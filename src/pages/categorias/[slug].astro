@@ -4,6 +4,7 @@ import type { Seo } from "@interfaces/Seo";
 import Layout from "@layouts/Layout.astro";
 import Container from "@layouts/Container.astro";
 import Header from "@components/categorias/Header.astro";
+import Masoterapia from "@components/categorias/Masoterapia.astro";
 import Card from "@components/extras/Card.astro";
 
 export const getStaticPaths = (() => {
@@ -19,32 +20,47 @@ interface Props {
 
 const categoria = Astro.props.categoria;
 const seo: Seo = {
-  title: categoria.name,
+  title: categoria.name + " | Cenakin OTEC Cursos Viña del Mar, Chile",
   description: categoria.description,
   url: `https://cenakin.cl/categorias/${categoria.slug}`,
   image: "https://cenakin.cl/images/logo_completo.jpg",
 };
 
-const cursos =
-  categoria.slug === "masoterapia"
-    ? masoterapia
-    : categoria.slug === "marketing"
-      ? marketing
-      : categoria.slug === "online"
-        ? online
-        : categoria.slug === "salud"
-          ? salud
-          : [];
+let cursos = [];
+switch (categoria.slug) {
+  case "masoterapia":
+    cursos = masoterapia;
+    break;
+  case "marketing":
+    cursos = marketing;
+    break;
+  case "online":
+    cursos = online;
+    break;
+  case "salud":
+    cursos = salud;
+    break;
+  default:
+    cursos = [];
+    break;
+}
 ---
 
 <Layout dataPag={seo}>
   <Container>
-    <Header titulo={categoria.name} descripcion={categoria.descripcion} />
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="mb-4">
+      <Header titulo={categoria.name} descripcion={categoria.descripcion} />
+      <h1 class="text-5xl font-bold mt-8 mb-4">Nuestros Cursos</h1>
       {
-        cursos.map((curso: any) => {
-          return <Card slug={curso.slug} title={curso.name} />;
-        })
+        categoria.slug !== "masoterapia" ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {cursos.map((curso: any) => {
+              return <Card slug={curso.slug} title={curso.name} />;
+            })}
+          </div>
+        ) : (
+          <Masoterapia cursos={cursos} />
+        )
       }
     </div>
   </Container>

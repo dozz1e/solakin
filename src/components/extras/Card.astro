@@ -1,4 +1,6 @@
 ---
+import { FileBadge, ShieldCheck } from "lucide-astro";
+
 interface Props {
   slug: string;
   title: string;
@@ -9,9 +11,14 @@ const { slug, title } = Astro.props;
 
 <a href={`/cursos/${slug}`} class="col-span-1">
   <div
-    class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow duration-300"
+    class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg"
   >
-    <figure>
+    <figure class="relative">
+      <div
+        class="badge bg-sky-600 text-white absolute top-2 left-2 rounded-none border-none font-bold"
+      >
+        CENAKIN
+      </div>
       <img
         src={`https://cenakin.cl/images/cursos/${slug}/1@1x.webp`}
         alt={title}
@@ -20,7 +27,24 @@ const { slug, title } = Astro.props;
     </figure>
     <div class="card-body">
       <h2 class="card-title">{title}</h2>
-      <div class="card-actions justify-end">HOIla y Chao</div>
+      <div class="card-actions">
+        <ul>
+          <li class="flex items-center gap-2">
+            <FileBadge color="oklch(58% 0.158 241.966)" />Curso Certificado
+          </li>
+          <li class="flex items-center gap-2">
+            <ShieldCheck color="oklch(58% 0.158 241.966)" />Docentes
+            Profesionales
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </a>
+
+<style>
+  .badge {
+    font-family: "Roboto", sans-serif;
+    text-shadow: 1px 1px 1px black;
+  }
+</style>

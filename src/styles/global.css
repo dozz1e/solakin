@@ -1,13 +1,23 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @plugin "daisyui" {
   themes:
     light --default,
     dark --prefersdark,
-    corporate;
+    emerald;
 }
 
 :root {
   --celeste: #0098ff;
+}
+
+.bg-celeste {
+  background-color: var(--celeste);
+  color: white;
+}
+
+.text-celeste {
+  color: var(--celeste);
 }
 
 body {
