@@ -16,7 +16,7 @@ const seo: Seo = {
 
 <Layout dataPag={seo}>
   <Container>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:mb-0">
       {
         masoterapia.map((curso: any) => {
           return <Card slug={curso.slug} title={curso.name} />;
