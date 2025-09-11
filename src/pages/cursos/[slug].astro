@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from "@layouts/LayoutCurso.astro";
 import Container from "@layouts/Container.astro";
 import { Seo } from "@interfaces/Seo";
 import { cursos } from "@lib/cursos";
@@ -45,7 +45,11 @@ const seo: Seo = {
 };
 ---
 
-<Layout dataPag={seo}>
+<Layout
+  dataPag={seo}
+  precio={curso.regular_price || curso.sale_price}
+  id={curso.id}
+>
   <Container>
     <Cabecera titulo={curso.name} slug={curso.slug} id={curso.id} />
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 my-8">
@@ -70,16 +74,18 @@ const seo: Seo = {
             precio={curso.regular_price}
             descuento={curso.sale_price}
             id={curso.id}
+            fecha={curso.date_on_sale_to}
           />
         </div>
       </div>
       <aside class="col-span-1 flex flex-col gap-4">
         <DatosContacto />
-        <div class="card bg-base-100 shadow-xl p-4">
+        <div class="card bg-base-100 shadow-xl p-4 hidden lg:block">
           <ReservaPrecio
             precio={curso.regular_price}
             descuento={curso.sale_price}
             id={curso.id}
+            fecha={curso.date_on_sale_to}
           />
         </div>
       </aside>
@@ -90,8 +96,11 @@ const seo: Seo = {
 <script>
   const btnComprar1 = document.getElementById("compra1");
   const btnComprar2 = document.getElementById("compra2");
+  const btnComprar3 = document.getElementById("compra3");
   const idCurso1 = btnComprar1.getAttribute("aria-data-id");
   const idCurso2 = btnComprar2.getAttribute("aria-data-id");
+  const idCurso3 = btnComprar3.getAttribute("aria-data-id");
+
   btnComprar1.addEventListener("click", (e) => {
     e.preventDefault();
     // fbq("track", "AddToCart");
@@ -101,5 +110,10 @@ const seo: Seo = {
     e.preventDefault();
     // fbq("track", "AddToCart");
     window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso2}`;
+  });
+  btnComprar3.addEventListener("click", (e) => {
+    e.preventDefault();
+    // fbq("track", "AddToCart");
+    window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso3}`;
   });
 </script>

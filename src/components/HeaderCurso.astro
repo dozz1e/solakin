@@ -1,0 +1,57 @@
+---
+import Container from "@layouts/Container.astro";
+import { menu } from "@lib/menu.ts";
+---
+
+<div>
+  <div class="navbar fixed w-full top-0 z-10 bg-base-100 shadow-md">
+    <Container className="flex">
+      <div class="navbar-start">
+        <a href="/" class="text-xl hidden lg:block">
+          <img src="/images/banner_ng.svg" alt="Logo Cenakin" class="w-30" />
+        </a>
+        <button
+          onclick="history.back()"
+          class="btn btn-ghost lg:hidden bg-slate-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-arrow-left"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="navbar-end">
+        <ul class="hidden md:flex md:gap-2 md:mr-2">
+          {
+            menu.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="btn btn-ghost uppercase hover:bg-sky-600 hover:text-white transition-colors"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a
+          href="https://aulavirtualcenakin.com"
+          class="border-none btn btn-primary uppercase bg-sky-600 text-white hover:bg-sky-800 hover:text-white transition-colors"
+          >Aula Virtual</a
+        >
+      </div>
+    </Container>
+  </div>
+</div>

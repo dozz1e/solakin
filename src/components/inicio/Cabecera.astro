@@ -1,16 +1,33 @@
-<picture>
-  <source
-    srcset="https://cenakin.cl/images/portada/1_1264.webp"
-    media="(min-width: 1400px)"
-    type="image/webp"
-  />
-  <source
-    srcset="https://cenakin.cl/images/portada/1_960.webp"
-    media="(min-width: 768px)"
-    type="image/webp"
-  />
-  <img
-    src="https://cenakin.cl/images/portada/1_600.webp"
-    alt="Portada Cenakin"
-  />
-</picture>
+<div id="cabecera__portada">
+  <picture>
+    <source
+      srcset="https://cenakin.cl/images/portada/1_1264.webp"
+      media="(min-width: 1400px)"
+      type="image/webp"
+      height="630px"
+    />
+    <source
+      srcset="https://cenakin.cl/images/portada/1_960.webp"
+      media="(min-width: 768px)"
+      type="image/webp"
+      height="630px"
+    />
+    <img
+      src="https://cenakin.cl/images/portada/1_600.webp"
+      alt="Portada Cenakin"
+      height="430px"
+    />
+  </picture>
+</div>
+
+<style>
+  #cabecera__portada {
+    height: 430px;
+  }
+
+  @media (min-width: 768px) {
+    #cabecera__portada {
+      height: 630px;
+    }
+  }
+</style>
