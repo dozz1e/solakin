@@ -38,7 +38,7 @@ const formaciones = [
 ---
 
 <Container>
-  <div id="formaciones" class="mb-20">
+  <div id="formaciones" class="pb-24">
     <h2 class="text-5xl font-bold mb-4">Nuestras Formaciones</h2>
     <ul
       class="my-2 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 xl:gap-4"
@@ -46,7 +46,7 @@ const formaciones = [
       {
         formaciones.map((formacion, i) => (
           <li
-            class={`col-span-1 shadow-md rounded-md border-4 bg-neutral-100 hover:bg-neutral-800 hover:text-neutral-100 transition-colors hover:shadow-xl ${formacion.borderColor} hover:border-neutral-800`}
+            class={`col-span-1 shadow-md rounded-md border-4 bg-neutral-50 hover:bg-neutral-100 transition-colors hover:shadow-xl ${formacion.borderColor}`}
           >
             <a
               href={`/categorias/${formacion.slug}`}

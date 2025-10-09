@@ -3,17 +3,28 @@ import Container from "@layouts/Container.astro";
 ---
 
 <Container>
-  <div
-    class="flex flex-col md:flex-row gap-8 md:gap-32 items-center md:justify-center py-16"
-  >
-    <div>
-      <img
-        src="https://cenakin.cl/images/banner_bl.svg"
-        alt="Logo Cenakin 3 años acreditado"
-        class="md:w-96"
-      />
+  <div class="py-24" id="info">
+    <h2 class="text-5xl font-bold mb-4">Nuestras Certificaciones</h2>
+    <div
+      class="flex flex-col md:flex-row gap-8 md:gap-32 items-center md:justify-center"
+    >
+      <div>
+        <img
+          src="https://cenakin.cl/images/banner_bl.svg"
+          alt="Logo Cenakin 3 años acreditado"
+          class="md:w-96"
+        />
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src="/images/nch.webp" alt="NCH" />
+        <span class="text-center">OTEC Certificada<br />OC-CER726261</span>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img src="/images/wmf.webp" alt="WMF" class="w-48" />
+        <span class="text-center"
+          >Miembro Oficial Federación Mundial<br />de Masajes WMF</span
+        >
+      </div>
     </div>
-    <div><img src="/images/nch.webp" alt="NCH" /></div>
-    <div><img src="/images/wmf.webp" alt="WMF" class="w-48" /></div>
   </div>
 </Container>

@@ -39,93 +39,91 @@ const dudas = [
 ];
 ---
 
-<div class="bg-neutral-100 py-8">
+<div class="bg-neutral-100 py-24" id="faq">
   <Container>
-    <div class="py-8">
-      <h2 class="text-2xl font-bold mb-2">Preguntas Frecuentes</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-        <div class="col-span-1">
+    <h2 class="text-5xl font-bold mb-4">Preguntas Frecuentes</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+      <div class="col-span-1">
+        <div
+          class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300 mb-2"
+        >
+          <input type="checkbox" name="my-accordion" />
           <div
-            class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300 mb-2"
+            class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
           >
-            <input type="checkbox" name="my-accordion" />
-            <div
-              class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
-            >
-              {dudas[0].pregunta}
-            </div>
-            <div class="collapse-content text-sm">
-              <p class="pt-2">{dudas[0].respuesta}</p>
-            </div>
+            {dudas[0].pregunta}
           </div>
-          <div
-            class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300"
-          >
-            <input type="checkbox" name="my-accordion" />
-            <div
-              class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
-            >
-              {dudas[1].pregunta}
-            </div>
-            <div class="collapse-content text-sm">
-              <p class="pt-2">{dudas[1].respuesta}</p>
-            </div>
+          <div class="collapse-content text-sm">
+            <p class="pt-2">{dudas[0].respuesta}</p>
           </div>
         </div>
-        <div class="col-span-1">
+        <div
+          class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300"
+        >
+          <input type="checkbox" name="my-accordion" />
           <div
-            class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300 mb-2"
+            class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
           >
-            <input type="checkbox" name="my-accordion" />
-            <div
-              class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
-            >
-              {dudas[2].pregunta}
-            </div>
-            <div class="collapse-content text-sm">
-              <p class="pt-2">{dudas[2].respuesta}</p>
-            </div>
+            {dudas[1].pregunta}
           </div>
-          <div
-            class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300"
-          >
-            <input type="checkbox" name="my-accordion" />
-            <div
-              class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
-            >
-              {dudas[3].pregunta}
-            </div>
-            <div class="collapse-content text-sm">
-              <p class="pt-2">{dudas[3].respuesta}</p>
-            </div>
+          <div class="collapse-content text-sm">
+            <p class="pt-2">{dudas[1].respuesta}</p>
           </div>
         </div>
-        <div class="col-span-1">
+      </div>
+      <div class="col-span-1">
+        <div
+          class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300 mb-2"
+        >
+          <input type="checkbox" name="my-accordion" />
           <div
-            class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300 mb-2"
+            class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
           >
-            <input type="checkbox" name="my-accordion" />
-            <div
-              class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
-            >
-              {dudas[4].pregunta}
-            </div>
-            <div class="collapse-content text-sm">
-              <p class="pt-2">{dudas[4].respuesta}</p>
-            </div>
+            {dudas[2].pregunta}
           </div>
+          <div class="collapse-content text-sm">
+            <p class="pt-2">{dudas[2].respuesta}</p>
+          </div>
+        </div>
+        <div
+          class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300"
+        >
+          <input type="checkbox" name="my-accordion" />
           <div
-            class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300"
+            class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
           >
-            <input type="checkbox" name="my-accordion" />
-            <div
-              class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
-            >
-              {dudas[5].pregunta}
-            </div>
-            <div class="collapse-content text-sm">
-              <p class="pt-2">{dudas[5].respuesta}</p>
-            </div>
+            {dudas[3].pregunta}
+          </div>
+          <div class="collapse-content text-sm">
+            <p class="pt-2">{dudas[3].respuesta}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div
+          class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300 mb-2"
+        >
+          <input type="checkbox" name="my-accordion" />
+          <div
+            class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
+          >
+            {dudas[4].pregunta}
+          </div>
+          <div class="collapse-content text-sm">
+            <p class="pt-2">{dudas[4].respuesta}</p>
+          </div>
+        </div>
+        <div
+          class="collapse collapse-arrow rounded-md bg-base-100 border border-base-300"
+        >
+          <input type="checkbox" name="my-accordion" />
+          <div
+            class="collapse-title h-20 flex items-center justify-center font-semibold bg-sky-600 text-white"
+          >
+            {dudas[5].pregunta}
+          </div>
+          <div class="collapse-content text-sm">
+            <p class="pt-2">{dudas[5].respuesta}</p>
           </div>
         </div>
       </div>
