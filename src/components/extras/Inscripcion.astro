@@ -1,0 +1,126 @@
+---
+import { cursos } from "@lib/cursos";
+---
+
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box w-full max-w-xl rounded-md">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        >✕</button
+      >
+    </form>
+    <div class="card grid grid-cols-1 lg:grid-cols-3">
+      <figure class="col-span-1">
+        <img src="/images/logo.png" alt="Logo Cenakin" class="h-48" />
+      </figure>
+      <div class="card-body col-span-1 lg:col-span-2">
+        <h2 class="card-title">SUSCRÍBASE AHORA</h2>
+        <p>
+          Suscríbete y recibe información de formación o cursos de intéres,
+          próximas capacitaciones y ofertas.
+        </p>
+        <div class="justify-end">
+          <form class="grid grid-cols-1 gap-2">
+            <input
+              type="text"
+              id="name"
+              placeholder="Ingresa tu nombre"
+              class="input col-span-1 rounded-md"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              placeholder="Ingresa tu correo"
+              class="input col-span-1 rounded-md"
+              required
+            />
+            <!-- <select name="curso" id="curso" class="select">
+              <option value="">Curso de Interés</option>
+              {
+                cursos.map((curso) => (
+                  <option value={curso.name}>{curso.name}</option>
+                ))
+              }
+            </select> -->
+            <input
+              type="text"
+              placeholder="Ingrese su teléfono"
+              name="telefono"
+              id="telefono"
+              class="input col-span-1 rounded-md"
+              required
+            />
+            <button
+              id="submit"
+              class="btn rounded-md col-span-1 bg-celeste text-white uppercase"
+              >Suscribirse</button
+            >
+            <div
+              role="alert"
+              id="success"
+              class="alert alert-success alert-soft hidden"
+            >
+              <span>Suscipción confirmada!</span>
+            </div>
+            <div
+              role="alert"
+              id="error"
+              class="alert alert-error alert-soft hidden"
+            >
+              <span>Debe ingresar todos los datos correctamente.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const modal = document.getElementById("my_modal_1");
+  setTimeout(() => {
+    modal.showModal();
+  }, 3000);
+
+  const form = document.querySelector("form");
+  const success = document.getElementById("success");
+  const error = document.getElementById("error");
+  const submit = document.getElementById("submit");
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const curso = document.getElementById("curso");
+
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (name && email) {
+      success.classList.remove("hidden");
+      error.classList.add("hidden");
+      fetch("https://cenakin.cl/otec/correo.php", {
+        method: "POST",
+        nombre: name,
+        correo: email,
+        curso: curso || "Sin curso elegido.",
+      }).then((res) => {
+        if (res.ok) {
+          success.classList.remove("hidden");
+          error.classList.add("hidden");
+          form.reset();
+          setTimeout(() => {
+            modal.close();
+          }, 2000);
+        } else {
+          success.classList.add("hidden");
+          error.classList.remove("hidden");
+        }
+      });
+      form.reset();
+      setTimeout(() => {
+        modal.close();
+      }, 2000);
+    } else {
+      success.classList.add("hidden");
+      error.classList.remove("hidden");
+    }
+  });
+</script>

@@ -7,7 +7,6 @@ import Cabecera from "@components/cursos/Cabecera.astro";
 import Introduccion from "@components/cursos/Introduccion.astro";
 import Info from "@components/extras/Info.astro";
 import FeDoCu from "@components/cursos/FeDoCu.astro";
-import Whats from "@components/cursos/Whats.astro";
 import InObj from "@components/cursos/InObj.astro";
 import RePlan from "@components/cursos/RePlan.astro";
 import Video from "@components/cursos/Video.astro";
@@ -63,7 +62,6 @@ const seo: Seo = {
             f_termino={curso.acf.fecha_termino}
             formato={curso.acf.formato}
           />
-          <Whats />
           <InObj incluye={curso.acf.incluye} objetivos={curso.acf.objetivo} />
           <RePlan
             requisitos={curso.acf.dirigido}

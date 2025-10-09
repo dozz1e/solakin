@@ -9,21 +9,21 @@ const { docentes, f_inicio, f_termino, formato } = Astro.props;
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-  <div class="card bg-base-100 shadow-sm col-span-1">
+  <div class="card rounded-md bg-base-100 shadow-sm col-span-1">
     <div class="card-body prose">
       <h3 class="text-xl font-bold text-sky-600">Fechas y Horarios</h3>
       <div set:html={formato} />
       <div class="flex gap-2 mt-4">
         {
           f_inicio && (
-            <p class="bg-sky-600 text-white uppercase p-2">
+            <p class="bg-sky-600 text-white uppercase p-2 rounded-md">
               Fecha Inicio: <span class="font-bold">{f_inicio}</span>
             </p>
           )
         }
         {
           f_termino && (
-            <p class="bg-sky-600 text-white uppercase p-2">
+            <p class="bg-sky-600 text-white uppercase p-2 rounded-md">
               Fecha Termino: <span class="font-bold">{f_termino}</span>
             </p>
           )
@@ -32,7 +32,7 @@ const { docentes, f_inicio, f_termino, formato } = Astro.props;
     </div>
   </div>
   <div class="col-span-1 flex flex-col gap-4">
-    <div class="card bg-base-100 shadow-sm">
+    <div class="card rounded-md bg-base-100 shadow-sm">
       <div class="card-body prose">
         <h3 class="text-xl font-bold text-sky-600">Reserva de Cupo</h3>
         <span> Para reservar el cupo se realizan los siguientes pasos: </span>
@@ -54,7 +54,7 @@ const { docentes, f_inicio, f_termino, formato } = Astro.props;
         </ul>
       </div>
     </div>
-    <div class="card bg-base-100 shadow-sm">
+    <div class="card rounded-md bg-base-100 shadow-sm">
       <div class="card-body prose">
         <h3 class="text-xl font-bold text-sky-600">Docentes</h3>
         {

@@ -4,16 +4,16 @@ const { titulo, slug, id } = Astro.props;
 ---
 
 <div
-  class="hero bg-no-repeat mt-2 rounded-lg"
+  class="hero bg-no-repeat mt-2 rounded-md"
   style={`background-image: url(https://cenakin.cl/images/cursos/${slug}/1@3x.webp);`}
 >
-  <div class="hero-overlay rounded-lg"></div>
+  <div class="hero-overlay rounded-md"></div>
   <div class="hero-content text-neutral-content">
     <div class="flex flex-col items-center justify-center">
       <h1 class="mb-5 text-4xl lg:text-6xl font-bold text-center">{titulo}</h1>
       <a
         href={`https://cenakin.cl/pdfs/${id}.pdf`}
-        class="btn border-none bg-violet-600 text-white hover:bg-violet-900 hover:text-white transition-colors uppercase btn-lg"
+        class="btn rounded-md border-none bg-violet-600 text-white hover:bg-violet-900 hover:text-white transition-colors uppercase btn-lg"
         target="_blank"><Download /> Descargar Programa</a
       >
     </div>
