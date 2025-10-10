@@ -55,7 +55,7 @@ const fechaFormateada = (fecha) => {
             : `Arancel con descuento. Válido hasta el ${fechaFormateada(fecha)}`
         }
       </p>
-      <div class="stat-value text-sky-600 text-5xl text-center lg:p-6 py-6">
+      <div class="stat-value text-sky-600 text-4xl text-center lg:p-6 py-6">
         {descuento == 0 ? moneda(precio) : moneda(descuento)} CLP
       </div>
       <div class="hidden md:flex">
