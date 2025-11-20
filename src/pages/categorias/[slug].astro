@@ -52,16 +52,15 @@ switch (categoria.slug) {
       <Header titulo={categoria.name} descripcion={categoria.descripcion} />
       <h1 class="text-5xl font-bold mt-8 mb-4">Nuestros Cursos</h1>
       {
-        categoria.slug !== "masoterapia" ? (
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        categoria.slug !== "masoterapia" && (
+          <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
             {cursos.map((curso: any) => {
               return <Card slug={curso.slug} title={curso.name} />;
             })}
-          </div>
-        ) : (
-          <Masoterapia cursos={cursos} />
+          </ul>
         )
       }
+      {categoria.slug === "masoterapia" && <Masoterapia cursos={cursos} />}
     </div>
   </Container>
 </Layout>

@@ -5,7 +5,7 @@ const menu = [
   },
   {
     name: "Cursos",
-    href: "/categorias/masoterapia",
+    href: "/categorias/",
   },
   {
     name: "Diplomado",
@@ -24,7 +24,7 @@ const menuMobile = [
   },
   {
     name: "Cursos",
-    href: "/categorias/masoterapia",
+    href: "/categorias/",
   },
   {
     name: "Diplomado",

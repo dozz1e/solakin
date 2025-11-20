@@ -9,6 +9,7 @@ interface Props {
   description: string;
   url: string;
   image: string;
+  keywords: string;
 }
 
 const { title, description, url, image, keywords } = Astro.props
@@ -40,7 +41,7 @@ const { title, description, url, image, keywords } = Astro.props
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <script src="/js/pixel.js"></script>
+    <script src="/js/pixel.js" is:inline></script>
     <noscript
       ><img
         height="1"
@@ -52,9 +53,20 @@ const { title, description, url, image, keywords } = Astro.props
   </head>
   <body class="bg-white">
     <Header />
-    <main class="mt-16">
+    <main class="mt-16" id="main">
       <slot />
     </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1;
+  }
+</style>

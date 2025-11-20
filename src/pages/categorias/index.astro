@@ -1,0 +1,77 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@layouts/Container.astro";
+import Card from "@components/extras/Card.astro";
+import type { Seo } from "@interfaces/Seo";
+import { masoterapia, marketing, online, salud } from "@lib/cursos";
+import Masoterapia from "@components/categorias/Masoterapia.astro";
+
+const seo: Seo = {
+  title: "Todos nuestro cursos | Cenakin OTEC Cursos Viña del Mar, Chile",
+  description:
+    "Un nuevo método de enseñanza para distintos cursos, con materiales incluidos, docentes kinesiólogos y calidad de servicio Viña del Mar, Chile.",
+  url: `https://cenakin.cl/categorias/`,
+  image: "https://cenakin.cl/images/logo_completo.jpg",
+};
+---
+
+<Layout dataPag={seo}>
+  <Container>
+    <div class="mb-20 lg:mb-4">
+      <h1 class="text-5xl font-bold mt-8 mb-4">Nuestros Cursos</h1>
+      {
+        masoterapia && masoterapia.length > 0 && (
+          <Masoterapia cursos={masoterapia} />
+        )
+      }
+      <div>
+        {
+          salud && salud.length > 0 && (
+            <div class="mt-10">
+              <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+                Área de la Salud
+              </h2>
+              <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {salud.map((curso: any) => {
+                  return <Card slug={curso.slug} title={curso.name} />;
+                })}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+      <div>
+        {
+          marketing && marketing.length > 0 && (
+            <div class="mt-10">
+              <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+                Área de la Marketing
+              </h2>
+              <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {marketing.map((curso: any) => {
+                  return <Card slug={curso.slug} title={curso.name} />;
+                })}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+      <div>
+        {
+          online && online.length > 0 && (
+            <div class="mt-10">
+              <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+                Área de Cursos Online
+              </h2>
+              <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {online.map((curso: any) => {
+                  return <Card slug={curso.slug} title={curso.name} />;
+                })}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </Container>
+</Layout>

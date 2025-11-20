@@ -8,9 +8,9 @@ interface Props {
 const { docentes, f_inicio, f_termino, formato } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-  <div class="card rounded-md bg-base-100 shadow-sm col-span-1">
-    <div class="card-body prose">
+<div class="flex flex-col gap-4">
+  <div class="card rounded-md bg-base-100 shadow-sm">
+    <div class="card-body prose flex gap-4">
       <h3 class="text-xl font-bold text-sky-600">Fechas y Horarios</h3>
       <div set:html={formato} />
       <div class="flex gap-2 mt-4">
@@ -31,38 +31,38 @@ const { docentes, f_inicio, f_termino, formato } = Astro.props;
       </div>
     </div>
   </div>
-  <div class="col-span-1 flex flex-col gap-4">
-    <div class="card rounded-md bg-base-100 shadow-sm">
-      <div class="card-body prose">
-        <h3 class="text-xl font-bold text-sky-600">Reserva de Cupo</h3>
-        <span> Para reservar el cupo se realizan los siguientes pasos: </span>
-        <ul class="list-disc pl-4">
-          <li>
-            Pagar el valor completo del curso o capacitación desde el botón
-            comprar curso.
-          </li>
-          <li>
-            Una vez que se finalice el pago, recibiremos una notificación de
-            inmediato. Nos pondremos en contacto contigo, en nuestros horarios
-            de atención, y continuaremos con el proceso de inscripción.
-          </li>
-          <li>
-            Si deseas realizar tu inscripción por transferencia o en nuestras
-            oficinas, déjanos un mensaje en nuestro whatsapp o correo
-            eléctronico para entregarte los pasos a seguir.
-          </li>
-        </ul>
-      </div>
+
+  <div class="card rounded-md bg-base-100 shadow-sm">
+    <div class="card-body prose">
+      <h3 class="text-xl font-bold text-sky-600">Reserva de Cupo</h3>
+      <span> Para reservar el cupo se realizan los siguientes pasos: </span>
+      <ul class="list-disc pl-4">
+        <li>
+          Pagar el valor completo del curso o capacitación desde el botón
+          comprar curso.
+        </li>
+        <li>
+          Una vez que se finalice el pago, recibiremos una notificación de
+          inmediato. Nos pondremos en contacto contigo, en nuestros horarios de
+          atención, y continuaremos con el proceso de inscripción.
+        </li>
+        <li>
+          Si deseas realizar tu inscripción por transferencia o en nuestras
+          oficinas, déjanos un mensaje en nuestro whatsapp o correo eléctronico
+          para entregarte los pasos a seguir.
+        </li>
+      </ul>
     </div>
-    <div class="card rounded-md bg-base-100 shadow-sm">
-      <div class="card-body prose">
-        <h3 class="text-xl font-bold text-sky-600">Docentes</h3>
-        {
-          docentes.map((docente) => {
-            return <div class="p-2" set:html={docente} />;
-          })
-        }
-      </div>
+  </div>
+
+  <div class="card rounded-md bg-base-100 shadow-sm">
+    <div class="card-body prose">
+      <h3 class="text-xl font-bold text-sky-600">Docentes</h3>
+      {
+        docentes.map((docente) => {
+          return <div class="p-2" set:html={docente} />;
+        })
+      }
     </div>
   </div>
 </div>

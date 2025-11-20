@@ -17,6 +17,7 @@ export default defineConfig({
         "@utils": "/src/utils",
         "@layouts": "/src/layouts",
         "@lib": "/src/lib",
+        "@interfaces": "/interfaces",
       },
     },
   },

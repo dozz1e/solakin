@@ -31,90 +31,90 @@ const complementaria = cursos.filter((curso) =>
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
     Para ser un Masoterapeuta Profesional
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div>
+    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
     {
       diplomados.map((curso) => {
         return (
-          <div class="col-span-1">
             <Card slug={curso.slug} title={curso.name} />
-          </div>
-        );
-      })
-    }
+          );
+        })
+      }
+      </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
     Inicia o explora en la masoterapia
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div>
+    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
     {
       complementaria.map((curso) => {
         return (
-          <div class="col-span-1">
             <Card slug={curso.slug} title={curso.name} />
-          </div>
-        );
-      })
-    }
+          );
+        })
+      }
+      </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
     Cursos de Masajes
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div>
+    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
     {
       masajes.map((curso) => {
         return (
-          <div class="col-span-1">
             <Card slug={curso.slug} title={curso.name} />
-          </div>
-        );
-      })
-    }
+          );
+        })
+      }
+      </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
     Cursos de masajes deportivos
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div>
+    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
     {
       deportivos.map((curso) => {
         return (
-          <div class="col-span-1">
             <Card slug={curso.slug} title={curso.name} />
-          </div>
-        );
-      })
-    }
+          );
+        })
+      }
+      </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
     Cursos de masajes estéticos
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div>
+    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
     {
       esteticos.map((curso) => {
         return (
-          <div class="col-span-1">
             <Card slug={curso.slug} title={curso.name} />
-          </div>
-        );
-      })
-    }
+          );
+        })
+      }
+      </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
     Terapia complementaria
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div>
+    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
     {
       inicio.map((curso) => {
         return (
-          <div class="col-span-1">
             <Card slug={curso.slug} title={curso.name} />
-          </div>
-        );
-      })
-    }
+          );
+        })
+      }
+      </ul>
   </div>
 </div>

@@ -1,6 +1,7 @@
 ---
 import Container from "@layouts/Container.astro";
 import { menu } from "@lib/menu.ts";
+import Buscador from "@components/Buscador.astro";
 ---
 
 <div>
@@ -10,6 +11,9 @@ import { menu } from "@lib/menu.ts";
         <a href="/" class="text-xl hidden lg:block">
           <img src="/images/banner_ng.svg" alt="Logo Cenakin" class="w-30" />
         </a>
+        <div class="hidden lg:block">
+          <Buscador />
+        </div>
         <button
           onclick="history.back()"
           class="btn btn-ghost rounded-md lg:hidden bg-slate-200"
