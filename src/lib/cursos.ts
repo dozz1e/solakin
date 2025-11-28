@@ -20,7 +20,7 @@ const online = cursos.filter((curso: any) => {
 });
 
 const salud = cursos.filter((curso: any) => {
-  return curso.categories.some((category: any) => category.id === 23);
+  return curso.categories.some((category: any) => category.id === 28);
 });
 
 const categorias = [
