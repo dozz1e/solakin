@@ -2,75 +2,103 @@
 import Card from "@components/extras/Card.astro";
 const { cursos } = Astro.props;
 
-const masajes = cursos.filter((curso) =>
-  curso.categories.some((categoria) => categoria.id === 34),
-);
+const filtro = (id) => {
+  return cursos.filter((curso) =>
+    curso.categories.some((categoria) => categoria.id === id),
+  );
+};
 
-const deportivos = cursos.filter((curso) =>
-  curso.categories.some((categoria) => categoria.id === 45),
-);
+const masajes = filtro(34);
+const deportivos = filtro(45);
+const esteticos = filtro(44);
+const diplomados = filtro(32);
+const inicio = filtro(29);
+const complementaria = filtro(46);
 
-const esteticos = cursos.filter((curso) =>
-  curso.categories.some((categoria) => categoria.id === 44),
-);
-
-const diplomados = cursos.filter((curso) =>
-  curso.categories.some((categoria) => categoria.id === 32),
-);
-
-const inicio = cursos.filter((curso) =>
-  curso.categories.some((categoria) => categoria.id === 29),
-);
-
-const complementaria = cursos.filter((curso) =>
-  curso.categories.some((categoria) => categoria.id === 46),
-);
+const categorias = [
+  {
+    title: "Diplomados en masoterapía",
+    cat: diplomados,
+  },
+  {
+    title: "Cursos de masajes",
+    cat: complementaria,
+  },
+  {
+    title: "Cursos de Masajes 2",
+    cat: masajes,
+  },
+  {
+    title: "Cursos de masajes deportivos",
+    cat: deportivos,
+  },
+  {
+    title: "Cursos de masajes estéticos",
+    cat: esteticos,
+  },
+  {
+    title: "Cursos de masajes holísticos",
+    cat: inicio,
+  },
+];
 ---
 
 <div class="mb-20 lg:mb-0">
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
-    Para ser un Masoterapeuta Profesional
+    Diplomados en masoterapía
   </h2>
   <div>
     <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
-    {
-      diplomados.map((curso) => {
-        return (
-            <Card slug={curso.slug} title={curso.name} />
+      {
+        diplomados.map((curso) => {
+          return (
+            <Card
+              slug={curso.slug}
+              title={curso.name}
+              horas={curso.acf.horas}
+            />
           );
         })
       }
-      </ul>
+    </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
-    Inicia o explora en la masoterapia
+    Cursos de masajes
   </h2>
   <div>
     <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
-    {
-      complementaria.map((curso) => {
-        return (
-            <Card slug={curso.slug} title={curso.name} />
+      {
+        complementaria.map((curso) => {
+          return (
+            <Card
+              slug={curso.slug}
+              title={curso.name}
+              horas={curso.acf.horas}
+            />
           );
         })
       }
-      </ul>
+    </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
-    Cursos de Masajes
+    Cursos de Masajes 2
   </h2>
   <div>
     <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
-    {
-      masajes.map((curso) => {
-        return (
-            <Card slug={curso.slug} title={curso.name} />
+      {
+        masajes.map((curso) => {
+          return (
+            <Card
+              slug={curso.slug}
+              title={curso.name}
+              horas={curso.acf.horas}
+            />
           );
         })
       }
-      </ul>
+    </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
@@ -78,14 +106,18 @@ const complementaria = cursos.filter((curso) =>
   </h2>
   <div>
     <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
-    {
-      deportivos.map((curso) => {
-        return (
-            <Card slug={curso.slug} title={curso.name} />
+      {
+        deportivos.map((curso) => {
+          return (
+            <Card
+              slug={curso.slug}
+              title={curso.name}
+              horas={curso.acf.horas}
+            />
           );
         })
       }
-      </ul>
+    </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
@@ -93,28 +125,36 @@ const complementaria = cursos.filter((curso) =>
   </h2>
   <div>
     <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
-    {
-      esteticos.map((curso) => {
-        return (
-            <Card slug={curso.slug} title={curso.name} />
+      {
+        esteticos.map((curso) => {
+          return (
+            <Card
+              slug={curso.slug}
+              title={curso.name}
+              horas={curso.acf.horas}
+            />
           );
         })
       }
-      </ul>
+    </ul>
   </div>
 
   <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
-    Terapia complementaria
+    Cursos de masajes holísticos
   </h2>
   <div>
     <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
-    {
-      inicio.map((curso) => {
-        return (
-            <Card slug={curso.slug} title={curso.name} />
+      {
+        inicio.map((curso) => {
+          return (
+            <Card
+              slug={curso.slug}
+              title={curso.name}
+              horas={curso.acf.horas}
+            />
           );
         })
       }
-      </ul>
+    </ul>
   </div>
 </div>
