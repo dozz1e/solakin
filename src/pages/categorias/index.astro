@@ -18,7 +18,7 @@ const seo: Seo = {
 <Layout dataPag={seo}>
   <Container>
     <div class="mb-20 lg:mb-4">
-      <h1 class="text-5xl font-bold mt-8 mb-4">Nuestros Cursos</h1>
+      <h1 class="mt-8 mb-4 font-bold text-5xl">Nuestros Cursos</h1>
       {
         masoterapia && masoterapia.length > 0 && (
           <Masoterapia cursos={masoterapia} />
@@ -28,12 +28,18 @@ const seo: Seo = {
         {
           salud && salud.length > 0 && (
             <div class="mt-10">
-              <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+              <h2 class="mt-8 mb-2 font-bold text-lg lg:text-2xl uppercase">
                 Área de la Salud
               </h2>
-              <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
                 {salud.map((curso: any) => {
-                  return <Card slug={curso.slug} title={curso.name} />;
+                  return (
+                    <Card
+                      slug={curso.slug}
+                      title={curso.name}
+                      horas={curso.acf.horas}
+                    />
+                  );
                 })}
               </ul>
             </div>
@@ -44,12 +50,18 @@ const seo: Seo = {
         {
           marketing && marketing.length > 0 && (
             <div class="mt-10">
-              <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+              <h2 class="mt-8 mb-2 font-bold text-lg lg:text-2xl uppercase">
                 Área de la Marketing
               </h2>
-              <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
                 {marketing.map((curso: any) => {
-                  return <Card slug={curso.slug} title={curso.name} />;
+                  return (
+                    <Card
+                      slug={curso.slug}
+                      title={curso.name}
+                      horas={curso.acf.horas}
+                    />
+                  );
                 })}
               </ul>
             </div>
@@ -60,12 +72,18 @@ const seo: Seo = {
         {
           online && online.length > 0 && (
             <div class="mt-10">
-              <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+              <h2 class="mt-8 mb-2 font-bold text-lg lg:text-2xl uppercase">
                 Área de Cursos Online
               </h2>
-              <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
                 {online.map((curso: any) => {
-                  return <Card slug={curso.slug} title={curso.name} />;
+                  return (
+                    <Card
+                      slug={curso.slug}
+                      title={curso.name}
+                      horas={curso.acf.horas}
+                    />
+                  );
                 })}
               </ul>
             </div>
