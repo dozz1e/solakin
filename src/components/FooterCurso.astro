@@ -1,27 +1,19 @@
 ---
 import Container from "@layouts/Container.astro";
+import Whatsapp from "./icons/Whatsapp.astro";
 
 const { precio, id } = Astro.props as {
   precio: number;
   id: number;
 };
-
-const moneda = (valor) => {
-  const formatterPeso = new Intl.NumberFormat("es-CL", {
-    style: "currency",
-    currency: "CLP",
-    minimumFractionDigits: 0,
-  });
-  return formatterPeso.format(valor);
-};
 ---
 
-<div class="bg-neutral hidden md:block" id="footer">
+<div class="hidden md:block bg-neutral" id="footer">
   <Container>
     <footer
-      class="footer footer-horizontal text-neutral-content items-center p-4"
+      class="items-center p-4 text-neutral-content footer footer-horizontal"
     >
-      <aside class="grid-flow-col items-center">
+      <aside class="items-center grid-flow-col">
         <img src="/images/banner_bl.svg" alt="Logo Cenakin" class="w-30" />
         <p>
           © {new Date().getFullYear()} - CENAKIN S.p.A.
@@ -32,7 +24,7 @@ const moneda = (valor) => {
           <a href="/terminos/politica-cookies">Política de Cookies</a>
         </p>
       </aside>
-      <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <nav class="md:justify-self-end md:place-self-center gap-4 grid-flow-col">
         <a href="https://www.facebook.com/cenakinchile" target="_blank"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,9 +74,9 @@ const moneda = (valor) => {
   </Container>
 </div>
 
-<div class="fab hidden lg:block">
+<div class="hidden lg:block fab">
   <div
-    class="tooltip tooltip-open tooltip-left tooltip-primary"
+    class="tooltip-left tooltip tooltip-open tooltip-primary"
     data-tip="Escríbenos!"
   >
     <a
@@ -109,17 +101,15 @@ const moneda = (valor) => {
 </div>
 
 <div
-  class="fixed bottom-0 left-0 right-0 md:hidden bg-base-100 p-2 z-50 border-t border-slate-200"
+  class="md:hidden right-0 bottom-0 left-0 z-50 fixed bg-base-100 p-2 border-slate-200 border-t"
 >
-  <span class="text-xl flex align-center justify-center">
-    Arancel Total: <strong>{moneda(precio)} CLP</strong>
-  </span>
-  <button
-    class="btn bg-sky-600 text-white w-full py-6 uppercase mt-2"
-    id="compra3"
-    aria-data-id={id}
-    >Inscríbete Aquí
-  </button>
+  <a
+    href="https://wa.me/56944871048?text=Hola%20me%20gustaría%20contactarme"
+    target="_blank"
+    class="bg-green-600 mt-2 py-6 w-full text-white uppercase btn"
+  >
+    Más Información <Whatsapp />
+  </a>
 </div>
 
 <style>

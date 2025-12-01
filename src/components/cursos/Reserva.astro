@@ -42,29 +42,29 @@ const fechaFormateada = (fecha) => {
 ---
 
 <div
-  class="stats stats-vertical lg:stats-horizontal shadow grid grid-cols-1 lg:grid-cols-2 gap-4"
+  class="gap-4 grid grid-cols-1 lg:grid-cols-2 shadow stats stats-vertical lg:stats-horizontal"
 >
-  <div class="stat col-span-1">
+  <div class="col-span-1 stat">
     <div class="stat-title">Valores y Formas de pago</div>
     <h4 class="font-bold text-2xl">
-      Arancel Total <span class="line-through font-light text-md"
+      Arancel Total <span class="font-light text-md line-through"
         >{descuento == 0 ? "" : moneda(precio)}</span
       >
 
-      <p class="text-sm font-light">
+      <p class="font-light text-sm">
         {
           descuento == 0
             ? ""
             : `Arancel con descuento. Válido hasta el ${fechaFormateada(fecha)}`
         }
       </p>
-      <div class="stat-value text-sky-600 text-4xl text-center lg:p-6 py-6">
+      <div class="lg:p-6 py-6 text-sky-600 text-4xl text-center stat-value">
         {descuento == 0 ? moneda(precio) : moneda(descuento)} CLP
       </div>
       <div class="hidden md:flex">
         <button
           id="compra1"
-          class="btn rounded-md bg-sky-600 text-white w-full py-6 uppercase rounded-md"
+          class="bg-sky-600 py-6 rounded-md w-full text-white uppercase btn"
           aria-data-id={id}
         >
           Inscríbete aquí
@@ -72,7 +72,7 @@ const fechaFormateada = (fecha) => {
       </div>
     </h4>
   </div>
-  <div class="stat col-span-1">
+  <div class="col-span-1 stat">
     <div class="stat-title">Medios de Pago</div>
     <span> Pago con tarjeta de débito o tarjeta de crédito. </span>
     <img src="/images/medios-pago.png" alt="Medios de pago" />
