@@ -21,11 +21,7 @@ const categorias = [
     cat: diplomados,
   },
   {
-    title: "Cursos de masajes",
-    cat: complementaria,
-  },
-  {
-    title: "Cursos de Masajes 2",
+    title: "Cursos de Masajes",
     cat: masajes,
   },
   {
@@ -44,11 +40,11 @@ const categorias = [
 ---
 
 <div class="mb-20 lg:mb-0">
-  <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+  <h2 class="mt-8 mb-2 font-bold text-lg lg:text-2xl uppercase">
     Diplomados en masoterapía
   </h2>
   <div>
-    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
       {
         diplomados.map((curso) => {
           return (
@@ -63,30 +59,11 @@ const categorias = [
     </ul>
   </div>
 
-  <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
-    Cursos de masajes
+  <h2 class="mt-8 mb-2 font-bold text-lg lg:text-2xl uppercase">
+    Cursos de Masajes
   </h2>
   <div>
-    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
-      {
-        complementaria.map((curso) => {
-          return (
-            <Card
-              slug={curso.slug}
-              title={curso.name}
-              horas={curso.acf.horas}
-            />
-          );
-        })
-      }
-    </ul>
-  </div>
-
-  <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
-    Cursos de Masajes 2
-  </h2>
-  <div>
-    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
       {
         masajes.map((curso) => {
           return (
@@ -101,11 +78,11 @@ const categorias = [
     </ul>
   </div>
 
-  <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+  <h2 class="mt-8 mb-2 font-bold text-lg lg:text-2xl uppercase">
     Cursos de masajes deportivos
   </h2>
   <div>
-    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
       {
         deportivos.map((curso) => {
           return (
@@ -120,11 +97,11 @@ const categorias = [
     </ul>
   </div>
 
-  <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+  <h2 class="mt-8 mb-2 font-bold text-lg lg:text-2xl uppercase">
     Cursos de masajes estéticos
   </h2>
   <div>
-    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
       {
         esteticos.map((curso) => {
           return (
@@ -139,11 +116,11 @@ const categorias = [
     </ul>
   </div>
 
-  <h2 class="text-lg lg:text-2xl font-bold mt-8 mb-2 uppercase">
+  <h2 class="mt-8 mb-2 font-bold text-lg lg:text-2xl uppercase">
     Cursos de masajes holísticos
   </h2>
   <div>
-    <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
       {
         inicio.map((curso) => {
           return (

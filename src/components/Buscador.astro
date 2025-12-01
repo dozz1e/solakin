@@ -8,15 +8,15 @@ import { cursos } from "@lib/cursos";
       <div class="z-2 w-full">
         <ul
           id="buscador"
-          class="list gap-2 mt-10 py-2 z-2 grid-cols-1 rounded-md shadow-xl absolute w-96 mb-2 hidden"
+          class="hidden z-2 absolute gap-1 grid-cols-1 shadow-xl mt-10 mb-2 py-2 rounded-md w-96 list"
         >
         </ul>
       </div>
     </div>
     <div>
-      <label class="input rounded-md z-3 w-96">
+      <label class="z-3 rounded-md w-96 input">
         <svg
-          class="h-[1em] opacity-50"
+          class="opacity-50 h-[1em]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -56,7 +56,7 @@ import { cursos } from "@lib/cursos";
     else buscador.style.backgroundColor = "transparent";
     filtrado.forEach((curso) => {
       const li = document.createElement("li");
-      li.innerHTML = `<a href="/cursos/${curso.slug}" class="list-row rounded-md bg-white p-2 mx-2"><div><img class="h-16 rounded-bl-md rounded-tl-md" src="https://cenakin.cl/images/cursos/${curso.slug}/mini.webp" alt="${curso.name}" /></div><div class="leading-tight line-clamp-2">${curso.name}</div></a>`;
+      li.innerHTML = `<a href="/cursos/${curso.slug}" class="bg-white mx-1 p-0 rounded-md list-row"><div><img class="rounded-tl-md rounded-bl-md h-16" src="https://cenakin.cl/images/cursos/${curso.slug}/mini.webp" alt="${curso.name}" /></div><div class="py-2 pr-2 leading-4">${curso.name}</div></a>`;
       buscador.appendChild(li);
       li.addEventListener("click", () => {
         buscador.style.display = "none";
@@ -95,6 +95,21 @@ import { cursos } from "@lib/cursos";
       &:hover {
         background-color: #f5f5f5;
       }
+    }
+  }
+
+  .texto-truncado {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    @supports (-webkit-line-clamp: 2) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: initial;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
   }
 </style>

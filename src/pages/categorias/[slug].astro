@@ -50,12 +50,18 @@ switch (categoria.slug) {
   <Container>
     <div class="mb-20 lg:mb-4">
       <Header titulo={categoria.name} descripcion={categoria.descripcion} />
-      <h1 class="text-5xl font-bold mt-8 mb-4">Nuestros Cursos</h1>
+      <h1 class="mt-8 mb-4 font-bold text-5xl">Nuestros Cursos</h1>
       {
         categoria.slug !== "masoterapia" && (
-          <ul class="list grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
             {cursos.map((curso: any) => {
-              return <Card slug={curso.slug} title={curso.name} />;
+              return (
+                <Card
+                  slug={curso.slug}
+                  title={curso.name}
+                  horas={curso.acf.horas}
+                />
+              );
             })}
           </ul>
         )
