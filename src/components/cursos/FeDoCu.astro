@@ -8,22 +8,22 @@ interface Props {
 const { docentes, f_inicio, f_termino, formato } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4">
-  <div class="card rounded-md bg-base-100 shadow-sm">
-    <div class="card-body prose flex gap-4">
-      <h3 class="text-xl font-bold text-sky-600">Fechas y Horarios</h3>
+<div class="flex flex-col gap-4" id="fedocu">
+  <div class="bg-base-100 shadow-md rounded-md card">
+    <div class="flex gap-4 max-w-full card-body prose">
+      <h3 class="mb-1 font-bold text-sky-600 text-4xl">Fechas y Horarios</h3>
       <div set:html={formato} />
       <div class="flex gap-2 mt-4">
         {
           f_inicio && (
-            <p class="bg-sky-600 text-white uppercase p-2 rounded-md">
+            <p class="bg-sky-600 p-2 rounded-md text-white uppercase">
               Fecha Inicio: <span class="font-bold">{f_inicio}</span>
             </p>
           )
         }
         {
           f_termino && (
-            <p class="bg-sky-600 text-white uppercase p-2 rounded-md">
+            <p class="bg-sky-600 p-2 rounded-md text-white uppercase">
               Fecha Termino: <span class="font-bold">{f_termino}</span>
             </p>
           )
@@ -32,11 +32,11 @@ const { docentes, f_inicio, f_termino, formato } = Astro.props;
     </div>
   </div>
 
-  <div class="card rounded-md bg-base-100 shadow-sm">
-    <div class="card-body prose">
-      <h3 class="text-xl font-bold text-sky-600">Reserva de Cupo</h3>
+  <div class="bg-base-100 shadow-md rounded-md card">
+    <div class="max-w-full card-body prose">
+      <h3 class="mb-1 font-bold text-sky-600 text-4xl">Reserva de Cupo</h3>
       <span> Para reservar el cupo se realizan los siguientes pasos: </span>
-      <ul class="list-disc pl-4">
+      <ul class="pl-4 list-disc">
         <li>
           Pagar el valor completo del curso o capacitación desde el botón
           comprar curso.
@@ -55,14 +55,25 @@ const { docentes, f_inicio, f_termino, formato } = Astro.props;
     </div>
   </div>
 
-  <div class="card rounded-md bg-base-100 shadow-sm">
-    <div class="card-body prose">
-      <h3 class="text-xl font-bold text-sky-600">Docentes</h3>
+  <div class="bg-base-100 shadow-md rounded-md card">
+    <div class="max-w-full card-body">
+      <h3 class="mb-1 font-bold text-sky-600 text-4xl">Docentes</h3>
       {
         docentes.map((docente) => {
-          return <div class="p-2" set:html={docente} />;
+          return <div class="p-2 prose" set:html={docente} />;
         })
       }
     </div>
   </div>
 </div>
+
+<style>
+  #fedocu {
+    p {
+      margin: 0 !important;
+    }
+    h4 {
+      margin-top: 0 !important;
+    }
+  }
+</style>

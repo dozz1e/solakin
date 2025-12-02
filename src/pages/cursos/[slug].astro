@@ -42,7 +42,7 @@ const seo: Seo = {
 >
   <Container>
     <Cabecera titulo={curso.name} slug={curso.slug} id={curso.id} />
-    <div class="gap-4 grid grid-cols-1 lg:grid-cols-3 my-8">
+    <div class="gap-4 grid grid-cols-1 lg:grid-cols-3 lg:my-8 mt-8">
       <div class="col-span-1 lg:col-span-2">
         <div class="gap-4 grid grid-cols-1">
           <Introduccion texto={curso.description} />
@@ -67,7 +67,7 @@ const seo: Seo = {
           />
         </div>
       </div>
-      <aside class="top-0 sticky col-span-1">
+      <aside class="hidden lg:block top-0 sticky col-span-1">
         <DatosContacto />
         <div class="stick">
           <ReservaPrecio
