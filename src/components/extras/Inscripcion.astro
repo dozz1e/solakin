@@ -1,38 +1,40 @@
 ---
-import { cursos } from "@lib/cursos";
+// import { cursos } from "@lib/cursos";
+
+const { clases } = Astro.props;
 ---
 
-<dialog id="my_modal_1" class="modal">
-  <div class="modal-box w-full max-w-xl rounded-md">
+<dialog id="my_modal_1" class={`${clases} modal`}>
+  <div class="rounded-md w-full max-w-xl modal-box">
     <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+      <button class="top-2 right-2 absolute btn btn-sm btn-circle btn-ghost"
         >✕</button
       >
     </form>
-    <div class="card grid grid-cols-1 lg:grid-cols-3">
+    <div class="grid grid-cols-1 lg:grid-cols-3 card">
       <figure class="col-span-1">
         <img src="/images/logo.png" alt="Logo Cenakin" class="h-48" />
       </figure>
-      <div class="card-body col-span-1 lg:col-span-2">
+      <div class="col-span-1 lg:col-span-2 card-body">
         <h2 class="card-title">SUSCRÍBASE AHORA</h2>
         <p>
           Suscríbete y recibe información de formación o cursos de intéres,
           próximas capacitaciones y ofertas.
         </p>
         <div class="justify-end">
-          <form class="grid grid-cols-1 gap-2">
+          <form class="gap-2 grid grid-cols-1">
             <input
               type="text"
               id="name"
               placeholder="Ingresa tu nombre"
-              class="input col-span-1 rounded-md w-full"
+              class="col-span-1 rounded-md w-full input"
               required
             />
             <input
               type="email"
               id="email"
               placeholder="Ingresa tu correo"
-              class="input col-span-1 rounded-md w-full"
+              class="col-span-1 rounded-md w-full input"
               required
             />
             <!-- <select name="curso" id="curso" class="select">
@@ -48,25 +50,25 @@ import { cursos } from "@lib/cursos";
               placeholder="Ingrese su teléfono"
               name="telefono"
               id="telefono"
-              class="input col-span-1 rounded-md w-full"
+              class="col-span-1 rounded-md w-full input"
               required
             />
             <button
               id="submit"
-              class="btn rounded-md col-span-1 bg-celeste text-white uppercase"
+              class="col-span-1 bg-celeste rounded-md text-white uppercase btn"
               >Suscribirse</button
             >
             <div
               role="alert"
               id="success"
-              class="alert alert-success alert-soft hidden"
+              class="hidden alert alert-success alert-soft"
             >
               <span>Suscipción confirmada!</span>
             </div>
             <div
               role="alert"
               id="error"
-              class="alert alert-error alert-soft hidden"
+              class="hidden alert alert-error alert-soft"
             >
               <span>Debe ingresar todos los datos correctamente.</span>
             </div>
@@ -78,11 +80,6 @@ import { cursos } from "@lib/cursos";
 </dialog>
 
 <script>
-  const modal = document.getElementById("my_modal_1");
-  setTimeout(() => {
-    modal.showModal();
-  }, 3000);
-
   const form = document.querySelector("form");
   const success = document.getElementById("success");
   const error = document.getElementById("error");

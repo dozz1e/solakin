@@ -1,0 +1,61 @@
+---
+import Inscripcion from "./Inscripcion.astro";
+---
+
+<div
+  id="avisoInscripcion"
+  class="hidden bottom-20 lg:bottom-2 left-2 fixed bg-white shadow-2xl mr-2 rounded-md lg:w-96 duration-500 ease-in card"
+>
+  <div class="flex justify-end mt-2 mr-2 card-actions">
+    <button id="avisoCerrar" class="btn btn-square btn-sm">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="justify-end">
+      <h2 class="card-title">SUSCRÍBASE AHORA</h2>
+      <p>
+        Suscríbete y recibe información de formación o cursos de intéres,
+        próximas capacitaciones y ofertas.
+      </p>
+    </div>
+    <div class="justify-end card-actions">
+      <button id="aviso" class="bg-celeste rounded-md btn btn-primary btn-wide"
+        >SUSCRIBIRSE</button
+      >
+    </div>
+  </div>
+</div>
+
+<Inscripcion />
+
+<script>
+  const modal = document.getElementById("my_modal_1");
+  const aviso = document.getElementById("aviso");
+  const cerrar = document.getElementById("avisoCerrar");
+  const avisoInscripcion = document.getElementById("avisoInscripcion");
+
+  setTimeout(() => {
+    avisoInscripcion?.classList.remove("hidden");
+  }, 3000);
+
+  aviso?.addEventListener("click", () => {
+    modal.showModal();
+  });
+
+  cerrar?.addEventListener("click", () => {
+    avisoInscripcion?.classList.add("hidden");
+  });
+</script>
