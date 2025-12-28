@@ -6,13 +6,14 @@ import { cursos } from "@lib/cursos";
 import Cabecera from "@components/cursos/Cabecera.astro";
 import Introduccion from "@components/cursos/Introduccion.astro";
 import Info from "@components/extras/Info.astro";
-import FeDoCu from "@components/cursos/FeDoCu.astro";
-import InObj from "@components/cursos/InObj.astro";
-import RePlan from "@components/cursos/RePlan.astro";
+import Docentes from "@components/cursos/Docentes.astro";
 import Video from "@components/cursos/Video.astro";
 import Reserva from "@components/cursos/Reserva.astro";
 import ReservaPrecio from "@components/cursos/ReservaPrecio.astro";
 import DatosContacto from "@components/extras/DatosContacto.astro";
+import Plan from "@components/cursos/Plan.astro";
+import ReIn from "@components/cursos/ReIn.astro";
+import Horarios from "@components/cursos/Horarios.astro";
 
 export const getStaticPaths = (() => {
   return cursos.map((curso) => ({
@@ -47,16 +48,13 @@ const seo: Seo = {
         <div class="gap-4 grid grid-cols-1">
           <Introduccion texto={curso.description} />
           <Info />
-          <FeDoCu
-            docentes={curso.acf.profesores}
+          <Plan plan={curso.acf.plan_estudios} />
+          <Docentes docentes={curso.acf.profesores} />
+          <ReIn requisitos={curso.acf.dirigido} incluye={curso.acf.incluye} />
+          <Horarios
             f_inicio={curso.acf.fecha_inicio}
             f_termino={curso.acf.fecha_termino}
             formato={curso.acf.formato}
-          />
-          <InObj incluye={curso.acf.incluye} objetivos={curso.acf.objetivo} />
-          <RePlan
-            requisitos={curso.acf.dirigido}
-            plan={curso.acf.plan_estudios}
           />
           <Video />
           <Reserva
@@ -80,36 +78,36 @@ const seo: Seo = {
       </aside>
     </div>
   </Container>
+
+  <style>
+    .stick {
+      position: sticky;
+      top: 20px;
+    }
+  </style>
+
+  <script>
+    const btnComprar1 = document.getElementById("compra1");
+    const btnComprar2 = document.getElementById("compra2");
+    const btnComprar3 = document.getElementById("compra3");
+    const idCurso1 = btnComprar1.getAttribute("aria-data-id");
+    const idCurso2 = btnComprar2.getAttribute("aria-data-id");
+    const idCurso3 = btnComprar3.getAttribute("aria-data-id");
+
+    btnComprar1.addEventListener("click", (e) => {
+      e.preventDefault();
+      // fbq("track", "AddToCart");
+      window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso1}`;
+    });
+    btnComprar2.addEventListener("click", (e) => {
+      e.preventDefault();
+      // fbq("track", "AddToCart");
+      window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso2}`;
+    });
+    btnComprar3.addEventListener("click", (e) => {
+      e.preventDefault();
+      // fbq("track", "AddToCart");
+      window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso3}`;
+    });
+  </script>
 </Layout>
-
-<style>
-  .stick {
-    position: sticky;
-    top: 20px;
-  }
-</style>
-
-<script>
-  const btnComprar1 = document.getElementById("compra1");
-  const btnComprar2 = document.getElementById("compra2");
-  const btnComprar3 = document.getElementById("compra3");
-  const idCurso1 = btnComprar1.getAttribute("aria-data-id");
-  const idCurso2 = btnComprar2.getAttribute("aria-data-id");
-  const idCurso3 = btnComprar3.getAttribute("aria-data-id");
-
-  btnComprar1.addEventListener("click", (e) => {
-    e.preventDefault();
-    // fbq("track", "AddToCart");
-    window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso1}`;
-  });
-  btnComprar2.addEventListener("click", (e) => {
-    e.preventDefault();
-    // fbq("track", "AddToCart");
-    window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso2}`;
-  });
-  btnComprar3.addEventListener("click", (e) => {
-    e.preventDefault();
-    // fbq("track", "AddToCart");
-    window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${idCurso3}`;
-  });
-</script>

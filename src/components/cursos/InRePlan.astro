@@ -1,0 +1,42 @@
+---
+interface Props {
+  incluye?: string;
+  requisitos?: string;
+  plan?: string;
+}
+
+const { incluye, requisitos, plan } = Astro.props;
+---
+
+<div class="gap-4 grid grid-cols-1 md:grid-cols-2">
+  {
+    plan && (
+      <div class="col-span-1 md:col-span-2 bg-base-100 shadow-md rounded-md card">
+        <div class="max-w-full card-body prose">
+          <h3 class="mb-1 font-bold text-sky-600 text-4xl">Plan de Estudios</h3>
+          <div set:html={plan} />
+        </div>
+      </div>
+    )
+  }
+  {
+    requisitos && (
+      <div class="col-span-1 bg-base-100 shadow-md rounded-md card">
+        <div class="max-w-full card-body prose">
+          <h3 class="mb-1 font-bold text-sky-600 text-4xl">Requisitos</h3>
+          <div set:html={requisitos} />
+        </div>
+      </div>
+    )
+  }
+  {
+    incluye && (
+      <div class="col-span-1 bg-base-100 shadow-md rounded-md card">
+        <div class="max-w-full card-body prose">
+          <h3 class="mb-1 font-bold text-sky-600 text-4xl">Incluye</h3>
+          <div set:html={incluye} />
+        </div>
+      </div>
+    )
+  }
+</div>

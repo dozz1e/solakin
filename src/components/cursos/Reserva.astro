@@ -61,7 +61,7 @@ const fechaFormateada = (fecha) => {
       <div class="lg:p-6 py-6 text-sky-600 text-4xl text-center stat-value">
         {descuento == 0 ? moneda(precio) : moneda(descuento)} CLP
       </div>
-      <div class="hidden md:flex">
+      <div>
         <button
           id="compra1"
           class="bg-sky-600 py-6 rounded-md w-full text-white uppercase btn"
@@ -78,3 +78,14 @@ const fechaFormateada = (fecha) => {
     <img src="/images/medios-pago.png" alt="Medios de pago" />
   </div>
 </div>
+
+<script>
+  import { compra } from "../../lib/cursos.ts";
+
+  const btnCompra = document.getElementById("compra1");
+  const id = btnCompra?.getAttribute("aria-data-id");
+
+  btnCompra?.addEventListener("click", () => {
+    compra(id);
+  });
+</script>

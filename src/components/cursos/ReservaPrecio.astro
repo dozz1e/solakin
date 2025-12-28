@@ -70,3 +70,14 @@ const fechaFormateada = (fecha) => {
     </h4>
   </div>
 </div>
+
+<script>
+  import { compra } from "../../lib/cursos.ts";
+
+  const btnCompra = document.getElementById("compra2");
+  const id = btnCompra?.getAttribute("aria-data-id");
+
+  btnCompra?.addEventListener("click", () => {
+    compra(id);
+  });
+</script>

@@ -30,15 +30,15 @@ const { slug, title, horas } = Astro.props;
       </div>
       <div class="flex gap-1 lg:mt-2">
         <div
-          class="flex items-center bg-sky-100 rounded-md text-[10px] text-sky-700 lg:text-xs badge"
+          class="flex items-center bg-sky-100 rounded-md text-sky-700 lg:text-xs badge"
         >
-          <FileBadge color="oklch(58% 0.158 241.966)" size="14" />Curso
+          <FileBadge color="oklch(58% 0.158 241.966)" size="12" />Curso
           Certificado
         </div>
         {
           horas && (
-            <div class="flex items-center bg-sky-100 rounded-md text-[10px] text-sky-700 lg:text-xs badge">
-              <CalendarClock color="oklch(58% 0.158 241.966)" size="14" />
+            <div class="flex items-center bg-sky-100 rounded-md text-sky-700 lg:text-xs badge">
+              <CalendarClock color="oklch(58% 0.158 241.966)" size="12" />
               {horas} horas
             </div>
           )
@@ -51,5 +51,14 @@ const { slug, title, horas } = Astro.props;
 <style>
   .title {
     font-family: "Roboto", sans-serif;
+  }
+  .badge {
+    font-size: 10px;
+  }
+
+  @media (width > 1024px) {
+    .badge {
+      font-size: 14px;
+    }
   }
 </style>

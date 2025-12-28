@@ -50,4 +50,8 @@ const categorias = [
   },
 ];
 
-export { cursos, masoterapia, marketing, online, salud, categorias };
+const compra = (id) => {
+  window.location.href = `https://cenakin.cl/otec/carrito/?add-to-cart=${id}`;
+};
+
+export { cursos, masoterapia, marketing, online, salud, categorias, compra };
