@@ -42,6 +42,7 @@ const { title, description, url, image, keywords } = Astro.props
       rel="stylesheet"
     />
     <script src="/js/pixel.js" is:inline></script>
+    <script src="/js/google.js" is:inline></script>
     <noscript
       ><img
         height="1"
@@ -50,6 +51,24 @@ const { title, description, url, image, keywords } = Astro.props
         src="https://www.facebook.com/tr?id=1078650119240088&ev=PageView&noscript=1"
       /></noscript
     >
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-K9Q9ZD7"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYY8B92XC9"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-DYY8B92XC9");
+    </script>
   </head>
   <body class="bg-white">
     <Header />

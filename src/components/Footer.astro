@@ -1,16 +1,13 @@
 ---
 import Container from "@layouts/Container.astro";
-import { menuMobile } from "@lib/menu.ts";
-import { Home, BookHeart, FileBadge, Mail } from "lucide-astro";
-import Whatsapp from "@components/icons/Whatsapp.astro";
 ---
 
-<div class="bg-neutral hidden lg:block" id="footer">
+<div class="hidden lg:block bg-neutral" id="footer">
   <Container>
     <footer
-      class="footer footer-horizontal text-neutral-content items-center p-4"
+      class="items-center p-4 text-neutral-content footer footer-horizontal"
     >
-      <aside class="grid-flow-col items-center">
+      <aside class="items-center grid-flow-col">
         <img src="/images/banner_bl.svg" alt="Logo Cenakin" class="w-30" />
         <p>
           © {new Date().getFullYear()} - CENAKIN S.p.A.
@@ -21,7 +18,7 @@ import Whatsapp from "@components/icons/Whatsapp.astro";
           <a href="/terminos/politica-cookies">Política de Cookies</a>
         </p>
       </aside>
-      <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <nav class="md:justify-self-end md:place-self-center gap-4 grid-flow-col">
         <a href="https://www.facebook.com/cenakinchile" target="_blank"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,9 +68,9 @@ import Whatsapp from "@components/icons/Whatsapp.astro";
   </Container>
 </div>
 
-<div class="fab hidden lg:block">
+<div class="fab">
   <div
-    class="tooltip tooltip-open tooltip-left tooltip-primary"
+    class="tooltip-left tooltip tooltip-open tooltip-primary"
     data-tip="Escríbenos!"
   >
     <a
@@ -95,20 +92,6 @@ import Whatsapp from "@components/icons/Whatsapp.astro";
       </svg>
     </a>
   </div>
-</div>
-
-<div class="dock lg:hidden z-50 border-t border-slate-200">
-  {
-    menuMobile.map((item, i) => (
-      <a href={item.href}>
-        {i === 0 ? <Home /> : null}
-        {i === 1 ? <BookHeart /> : null}
-        {i === 2 ? <FileBadge /> : null}
-        {i === 3 ? <Whatsapp /> : null}
-        <span class="dock-label">{item.name}</span>
-      </a>
-    ))
-  }
 </div>
 
 <style>

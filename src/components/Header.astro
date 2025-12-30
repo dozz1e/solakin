@@ -1,18 +1,96 @@
 ---
 import Container from "@layouts/Container.astro";
-import { menu } from "@lib/menu.ts";
+import { menu, menuMobile } from "@lib/menu.ts";
 import Buscador from "@components/Buscador.astro";
+import BuscadorMobile from "@components/BuscadorMobile.astro";
+import Menu from "./icons/Menu.astro";
+import WhatsappBl from "./icons/WhatsappBl.astro";
+import Instagram from "./icons/Instagram.astro";
+import Facebook from "./icons/Facebook.astro";
+import Buscar from "./icons/Buscar.astro";
 ---
 
-<div>
-  <div class="navbar fixed w-full top-0 z-10 bg-base-100 shadow-md">
+<div class="drawer">
+  <div class="top-0 z-10 fixed bg-base-100 shadow-md w-full navbar">
     <Container className="flex">
       <div class="navbar-start">
-        <a href="/" class="text-xl">
-          <img src="/images/banner_ng.svg" alt="Logo Cenakin" class="w-30" />
+        <input
+          id="my-drawer-1"
+          type="checkbox"
+          class="lg:hidden drawer-toggle"
+        />
+        <div class="lg:hidden drawer-content">
+          <!-- Page content here -->
+          <label for="my-drawer-1" class="btn btn-sm drawer-button">
+            <Menu />
+          </label>
+        </div>
+        <a href="/" class="ml-4 text-xl">
+          <img src="/images/banner_ng.svg" alt="Logo Cenakin" class="w-24" />
         </a>
         <div class="hidden lg:block">
           <Buscador />
+        </div>
+        <div class="drawer-side">
+          <label
+            id="labelDrawer"
+            for="my-drawer-1"
+            aria-label="close sidebar"
+            class="drawer-overlay"></label>
+          <div class="bg-sky-600 p-4 w-96 min-h-full text-white menu">
+            <div class="flex items-center pb-4 border-default border-b">
+              <a
+                href="/"
+                class="flex items-center space-x-2 rtl:space-x-reverse"
+              >
+                <img
+                  src="/images/banner-svgbl.svg"
+                  alt="Logo Cenakin"
+                  class="w-32"
+                />
+              </a>
+            </div>
+            <div class="py-5 overflow-y-auto" id="mobile">
+              <ul class="space-y-2 font-medium">
+                {
+                  menuMobile.map((item) => (
+                    <li onclick="document.getElementById('labelDrawer').click();">
+                      <a
+                        href={item.href}
+                        class="group flex items-center hover:bg-neutral-tertiary px-2 py-1.5 rounded-base text-body hover:text-fg-brand uppercase"
+                      >
+                        <span set:html={item.icon} />
+                        <span class="ms-3 text-2xl">{item.name}</span>
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="flex justify-around items-center w-full">
+              <div>
+                <ul class="flex">
+                  <li>
+                    <a href="https://www.facebook.com/cenakinchile"
+                      ><Facebook /></a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/cenakinchile/"
+                      ><Instagram /></a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://api.whatsapp.com/send?phone=56944871048"
+                      ><WhatsappBl /></a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <hr class="mr-2 w-6" />
+              <div class="text-md">admision@cenakin.cl</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="navbar-end">
@@ -22,7 +100,7 @@ import Buscador from "@components/Buscador.astro";
               <li>
                 <a
                   href={item.href}
-                  class="btn btn-ghost rounded-md uppercase hover:bg-sky-600 hover:text-white transition-colors"
+                  class="hover:bg-sky-600 rounded-md hover:text-white uppercase transition-colors btn btn-ghost"
                 >
                   {item.name}
                 </a>
@@ -30,12 +108,28 @@ import Buscador from "@components/Buscador.astro";
             ))
           }
         </ul>
+        <div class="lg:hidden">
+          <a
+            class="bg-transparent mr-2 border-none btn btn-sm"
+            href="/buscador"
+          >
+            <Buscar />
+          </a>
+        </div>
         <a
           href="https://aulavirtualcenakin.com"
-          class="border-none btn btn-primary rounded-md uppercase bg-sky-600 text-white hover:bg-sky-800 hover:text-white transition-colors"
+          class="bg-sky-600 hover:bg-sky-800 border-none rounded-md text-white hover:text-white uppercase transition-colors btn btn-primary btn-sm"
           >Aula Virtual</a
         >
       </div>
     </Container>
   </div>
 </div>
+
+<style>
+  #mobile {
+    ul li {
+      font-family: "Roboto", sans-serif;
+    }
+  }
+</style>

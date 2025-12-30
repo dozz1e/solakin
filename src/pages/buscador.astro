@@ -1,0 +1,21 @@
+---
+import Container from "@layouts/Container.astro";
+import Layout from "@layouts/Layout.astro";
+import type { Seo } from "@interfaces/Seo";
+import BuscadorMobile from "@components/BuscadorMobile.astro";
+
+const seo: Seo = {
+  title: "Buscador Cenakin OTEC Cursos Viña del Mar, Chile",
+  description:
+    "Un nuevo método de enseñanza para distintos cursos, con materiales incluidos, docentes kinesiólogos y calidad de servicio Viña del Mar, Chile.",
+  url: "https://cenakin.cl/buscador",
+  image: "https://cenakin.cl/images/logo_completo.jpg",
+};
+---
+
+<Layout dataPag={seo}>
+  <Container>
+    <h1 class="mt-5 mb-3 font-bold text-3xl">Buscador Cursos</h1>
+    <BuscadorMobile />
+  </Container>
+</Layout>

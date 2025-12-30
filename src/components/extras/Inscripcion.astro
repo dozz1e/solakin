@@ -4,13 +4,13 @@
 const { clases } = Astro.props;
 ---
 
+<form method="dialog">
+  <button class="top-2 right-2 absolute btn btn-sm btn-circle btn-ghost"
+    >✕</button
+  >
+</form>
 <dialog id="my_modal_1" class={`${clases} modal`}>
   <div class="rounded-md w-full max-w-xl modal-box">
-    <form method="dialog">
-      <button class="top-2 right-2 absolute btn btn-sm btn-circle btn-ghost"
-        >✕</button
-      >
-    </form>
     <div class="grid grid-cols-1 lg:grid-cols-3 card">
       <figure class="col-span-1">
         <img src="/images/logo.png" alt="Logo Cenakin" class="h-48" />
