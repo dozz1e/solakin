@@ -1,18 +1,28 @@
 ---
 import { cursos } from "@lib/cursos";
+import Card from "@components/extras/Card.astro";
+
+const mostrar = [
+  {
+    slug: "diplomado-masoterapia",
+    title: "Diplomado en masoterapia 2026",
+    horas: "150",
+  },
+  {
+    slug: "diplomado-semipresencial",
+    title: "Diplomado Semipresencial 2026",
+    horas: "150",
+  },
+  {
+    slug: "masoterapia-deportiva",
+    title: "Diplomado masoterapia deportiva 80 horas",
+    horas: "80",
+  },
+];
 ---
 
 <div id="segmento-buscar" class="lg:ml-4">
   <div>
-    <div>
-      <div class="z-2 w-full">
-        <ul
-          id="buscadorMobile"
-          class="hidden z-2 absolute gap-1 grid-cols-1 shadow-xl mt-10 mb-2 py-2 rounded-md w-96 list"
-        >
-        </ul>
-      </div>
-    </div>
     <div>
       <label class="z-3 rounded-md w-full lg:w-96 input">
         <svg
@@ -40,6 +50,20 @@ import { cursos } from "@lib/cursos";
       </label>
     </div>
   </div>
+  <div>
+    <ul id="buscadorMobile" class="gap-2 mt-5 list">
+      <li><h3 class="font-bold text-2xl">Cursos Recomendados</h3></li>
+      {
+        mostrar.map((mt) => {
+          return (
+            <li>
+              <Card slug={mt.slug} title={mt.title} horas={mt.horas} />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
 </div>
 
 <script define:vars={{ cursos }}>
@@ -57,27 +81,17 @@ import { cursos } from "@lib/cursos";
     const filtradoMov = cursos.filter((curso) =>
       curso.name.toLowerCase().includes(valor),
     );
-    if (filtradoMov.length > 0) buscadorMov.style.backgroundColor = "#f5f5f5";
+    if (filtradoMov.length > 0) buscadorMov.style.backgroundColor = "#fff";
     else buscadorMov.style.backgroundColor = "transparent";
     filtradoMov.forEach((curso) => {
       const li = document.createElement("li");
-      li.innerHTML = `<a href="/cursos/${curso.slug}" class="bg-white mx-1 p-0 rounded-md list-row"><div><img class="rounded-tl-md rounded-bl-md h-16" src="https://cenakin.cl/images/cursos/${curso.slug}/mini.webp" alt="${curso.name}" /></div><div class="py-2 pr-2 leading-4">${curso.name}</div></a>`;
+      li.innerHTML = `<a href="/cursos/${curso.slug}" class="bg-white shadow-md p-0 rounded-md h-18 lg:h-32 list-row"><div><img class="rounded-tl-md rounded-bl-md w-24 lg:w-40 h-18 lg:h-32 object-cover" src="https://cenakin.cl/images/cursos/${curso.slug}/mini.webp" alt="${curso.name}" /></div><div class="flex flex-col justify-around py-2 pr-2"><div class="font-bold lg:text-2xl line-clamp-2 leading-tight title">${curso.name}</div><div class="flex gap-1 lg:mt-2"><div class="flex items-center bg-sky-100 rounded-md text-sky-700 lg:text-xs badge"><FileBadge color="oklch(58% 0.158 241.966)" size="12" />Curso Certificado</div><div class="flex items-center bg-sky-100 rounded-md text-sky-700 lg:text-xs badge"><CalendarClock color="oklch(58% 0.158 241.966)" size="12" />${curso.acf.horas} horas</div></div></div></a>`;
       buscadorMov.appendChild(li);
       li.addEventListener("click", () => {
         buscadorMov.style.display = "none";
         buscadorMov.innerHTML = "";
       });
     });
-  });
-
-  buscar.addEventListener("click", () => (buscador.style.display = "grid"));
-
-  document.addEventListener("click", (e) => {
-    if (!buscador.contains(e.target) && e.target !== buscadorMov) {
-      buscadorMov.style.display = "none";
-    } else {
-      buscadorMov.style.display = "grid";
-    }
   });
 </script>
 
