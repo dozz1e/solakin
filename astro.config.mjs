@@ -7,6 +7,8 @@ import compressor from "astro-compressor";
 
 import purgecss from "astro-purgecss";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -21,6 +23,10 @@ export default defineConfig({
       },
     },
   },
-
-  integrations: [compressor({ gzip: true, brotli: false }), purgecss()],
+  site: "https://cenakin.cl",
+  integrations: [
+    compressor({ gzip: true, brotli: false }),
+    purgecss(),
+    sitemap(),
+  ],
 });
