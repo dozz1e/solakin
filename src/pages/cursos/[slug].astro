@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/LayoutCurso.astro";
+import Layout from "@layouts/Layout.astro";
 import Container from "@layouts/Container.astro";
 import { Seo } from "@interfaces/Seo";
 import { cursos } from "@lib/cursos";
@@ -48,14 +48,15 @@ const seo: Seo = {
         <div class="gap-4 grid grid-cols-1">
           <Introduccion texto={curso.description} />
           <Info />
-          <Plan plan={curso.acf.plan_estudios} />
-          <Docentes docentes={curso.acf.profesores} />
-          <ReIn requisitos={curso.acf.dirigido} incluye={curso.acf.incluye} />
           <Horarios
             f_inicio={curso.acf.fecha_inicio}
             f_termino={curso.acf.fecha_termino}
             formato={curso.acf.formato}
           />
+          <Plan plan={curso.acf.plan_estudios} />
+          <Docentes docentes={curso.acf.profesores} />
+          <ReIn requisitos={curso.acf.dirigido} incluye={curso.acf.incluye} />
+
           <Video />
           <Reserva
             precio={curso.regular_price}

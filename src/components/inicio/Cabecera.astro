@@ -1,33 +1,33 @@
-<div id="cabecera__portada" class="flex justify-center">
-  <picture>
-    <source
-      srcset="https://cenakin.cl/images/portada/1_1264.webp"
-      media="(min-width: 1024px)"
-      type="image/webp"
-      height="630"
-    />
-    <source
-      srcset="https://cenakin.cl/images/portada/1_960.webp"
-      media="(min-width: 768px)"
-      type="image/webp"
-      height="630"
-    />
-    <img
-      src="https://cenakin.cl/images/portada/1_600.webp"
-      alt="Portada Cenakin"
-      height="430"
-    />
-  </picture>
+<div id="cabecera__portada" class="flex justify-center mt-16">
+  <a href="/cursos/diplomado-masoterapia/">
+    <picture>
+      <source
+        srcset="https://cenakin.cl/images/portada/1_1264.webp"
+        media="(min-width: 1024px)"
+        type="image/webp"
+        height="100%"
+      />
+      <source
+        srcset="https://cenakin.cl/images/portada/1_960.webp"
+        media="(min-width: 768px)"
+        type="image/webp"
+        height="100%"
+      />
+      <img
+        src="https://cenakin.cl/images/portada/1_600.webp"
+        alt="Portada Cenakin"
+        height="100%"
+      />
+    </picture>
+  </a>
 </div>
 
 <style>
-  #cabecera__portada {
-    height: 430px;
-  }
-
-  @media (min-width: 768px) {
-    #cabecera__portada {
-      height: 630px;
+  #cabecera__portada a {
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block; /* Combina con lo anterior */
     }
   }
 </style>

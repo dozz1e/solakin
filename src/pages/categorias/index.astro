@@ -5,6 +5,7 @@ import Card from "@components/extras/Card.astro";
 import type { Seo } from "@interfaces/Seo";
 import { masoterapia, marketing, online, salud } from "@lib/cursos";
 import Masoterapia from "@components/categorias/Masoterapia.astro";
+import Inscripcion from "@components/extras/Inscripcion.astro";
 
 const seo: Seo = {
   title: "Todos nuestro cursos | Cenakin OTEC Cursos Viña del Mar, Chile",
@@ -93,3 +94,4 @@ const seo: Seo = {
     </div>
   </Container>
 </Layout>
+<Inscripcion />
