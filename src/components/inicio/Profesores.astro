@@ -1,0 +1,39 @@
+---
+import Container from "@layouts/Container.astro";
+---
+
+<Container>
+  <a href="/categorias/">
+    <div id="profesores" class="flex justify-center my-16">
+      <picture>
+        <source
+          srcset="images/profesores/1_1264.webp"
+          media="(min-width: 1024px)"
+          type="image/webp"
+          height="100%"
+        />
+        <source
+          srcset="images/profesores/1_960.webp"
+          media="(min-width: 768px)"
+          type="image/webp"
+          height="100%"
+        />
+        <img
+          src="images/profesores/1_600.webp"
+          alt="Profesores"
+          height="100%"
+        />
+      </picture>
+    </div>
+  </a>
+</Container>
+
+<style>
+  #profesores {
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block; /* Combina con lo anterior */
+    }
+  }
+</style>

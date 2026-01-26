@@ -1,0 +1,71 @@
+---
+import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
+---
+
+<Swiper
+  options={{
+    // check options at https://swiperjs.com/swiper-api
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      waitForTransition: false,
+    },
+    loop: true,
+  }}
+>
+  <SwiperWrapper>
+    <!-- Slides -->
+    <SwiperSlide>
+      <a href="/cursos/curso-online-masaje-relajante-y-descontracturante/">
+        <picture>
+          <source
+            srcset="/images/cursos-online/1_1264.webp"
+            media="(min-width: 1024px)"
+            type="image/webp"
+            height="100%"
+          />
+          <source
+            srcset="/images/cursos-online/1_960.webp"
+            media="(min-width: 768px)"
+            type="image/webp"
+            height="100%"
+          />
+          <img
+            src="/images/cursos-online/1_600.webp"
+            alt="Portada Cenakin"
+            height="100%"
+          />
+        </picture>
+      </a>
+    </SwiperSlide>
+    <SwiperSlide>
+      <a href="https://wa.link/32f2b6" target="_blank">
+        <picture>
+          <source
+            srcset="/images/inscripcion-anticipada/1_1264.webp"
+            media="(min-width: 1024px)"
+            type="image/webp"
+            height="100%"
+          />
+          <source
+            srcset="/images/inscripcion-anticipada/1_960.webp"
+            media="(min-width: 768px)"
+            type="image/webp"
+            height="100%"
+          />
+          <img
+            src="/images/inscripcion-anticipada/1_600.webp"
+            alt="Portada Cenakin"
+            height="100%"
+          />
+        </picture>
+      </a>
+    </SwiperSlide>
+  </SwiperWrapper>
+</Swiper>
+
+<style>
+  img {
+    width: 100%;
+  }
+</style>

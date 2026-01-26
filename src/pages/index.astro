@@ -2,11 +2,12 @@
 import Layout from "@layouts/Layout.astro";
 import type { Seo } from "@interfaces/Seo";
 
-import Cabecera from "@components/inicio/Cabecera.astro";
+import Cabecera from "@components/inicio/CabeceraSlider.astro";
 import Formaciones from "@components/inicio/Formaciones.astro";
 import Faq from "@components/extras/Faq.astro";
 import Contacto from "@components/extras/Contacto.astro";
 import Info from "@components/extras/Info.astro";
+import Profesores from "@components/inicio/Profesores.astro";
 
 const seo: Seo = {
   title: "Cenakin OTEC Cursos Viña del Mar, Chile",
@@ -20,6 +21,7 @@ const seo: Seo = {
 <Layout dataPag={seo}>
   <Cabecera />
   <Info />
+  <Profesores />
   <Formaciones />
   <Faq />
   <Contacto />
