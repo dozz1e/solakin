@@ -1,5 +1,11 @@
 ---
-import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
+import {
+  Swiper,
+  SwiperWrapper,
+  SwiperSlide,
+  SwiperButtonPrev,
+  SwiperButtonNext,
+} from "astro-swiper";
 ---
 
 <Swiper
@@ -10,11 +16,38 @@ import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
       disableOnInteraction: false,
       waitForTransition: false,
     },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
     loop: true,
   }}
 >
   <SwiperWrapper>
     <!-- Slides -->
+    <SwiperSlide>
+      <a href="https://cenakin.cl/cursos/diplomado-masoterapia/">
+        <picture>
+          <source
+            srcset="https://cenakin.cl/images/portada/1_1264.webp"
+            media="(min-width: 1024px)"
+            type="image/webp"
+            height="100%"
+          />
+          <source
+            srcset="https://cenakin.cl/images/portada/1_960.webp"
+            media="(min-width: 768px)"
+            type="image/webp"
+            height="100%"
+          />
+          <img
+            src="https://cenakin.cl/images/portada/1_600.webp"
+            alt="Portada Cenakin"
+            height="100%"
+          />
+        </picture>
+      </a>
+    </SwiperSlide>
     <SwiperSlide>
       <a href="/cursos/curso-online-masaje-relajante-y-descontracturante/">
         <picture>
@@ -62,6 +95,8 @@ import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
       </a>
     </SwiperSlide>
   </SwiperWrapper>
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
 </Swiper>
 
 <style>

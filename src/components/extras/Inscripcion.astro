@@ -9,7 +9,7 @@ const { clases } = Astro.props;
     >✕</button
   >
 </form>
-<dialog id="my_modal_1" class={`${clases} modal`}>
+<dialog id="my_modal_1" class={`${clases} modal p-4 lg:p-0`}>
   <div class="rounded-md w-full max-w-xl modal-box">
     <form method="dialog">
       <button
@@ -18,9 +18,11 @@ const { clases } = Astro.props;
       >
     </form>
     <div class="grid grid-cols-1 lg:grid-cols-3 card">
-      <figure class="col-span-1">
-        <img src="/images/logo.png" alt="Logo Cenakin" class="h-48" />
-      </figure>
+      <div class="col-span-1 hidden lg:flex">
+        <figure>
+          <img src="/images/logo.png" alt="Logo Cenakin" class="h-48" />
+        </figure>
+      </div>
       <div class="col-span-1 lg:col-span-2 card-body">
         <h2 class="card-title">SUSCRÍBASE AHORA</h2>
         <p>
