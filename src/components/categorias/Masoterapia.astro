@@ -13,11 +13,16 @@ const deportivos = filtro(45);
 const esteticos = filtro(44);
 const diplomados = filtro(32);
 const inicio = filtro(29);
+const educacionContinua = filtro(48);
 
 const categorias = [
   {
     title: "Diplomados en masoterapia",
     cat: diplomados,
+  },
+  {
+    title: "Educación continua o especializaciones",
+    cat: educacionContinua,
   },
   {
     title: "Cursos de Masajes",
@@ -46,6 +51,25 @@ const categorias = [
     <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
       {
         diplomados.map((curso) => {
+          return (
+            <Card
+              slug={curso.slug}
+              title={curso.name}
+              horas={curso.acf.horas}
+            />
+          );
+        })
+      }
+    </ul>
+  </div>
+
+  <h2 class="mt-8 mb-2 font-bold text-sky-600 text-lg lg:text-3xl uppercase">
+    Educación continua o especializaciones
+  </h2>
+  <div>
+    <ul class="gap-4 grid grid-cols-1 lg:grid-cols-2 list">
+      {
+        educacionContinua.map((curso) => {
           return (
             <Card
               slug={curso.slug}
