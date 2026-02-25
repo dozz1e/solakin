@@ -1,11 +1,25 @@
 const base = "https://cenakin.cl/otec/wp-json/wc/v3/";
 const kis =
-  "&consumer_key=ck_a62303a495e142cc35dbb14ca13884a4a8ae8b4e&consumer_secret=cs_49e0b6468aa1af67c931ed88fc59bfdacb5395ae";
+  "&consumer_key=ck_7f1caf46159585dd66eee803f6c0668a3d2fa0a3&consumer_secret=cs_715ac2a5e6e30ac7a69c7f75ef1ce2a06b09c632";
 
 const response = await fetch(`${base}products?category=22&per_page=50${kis}`);
 
-if (!response.ok) throw new Error("Problemas con la conexión");
-const cursos = await response.json();
+const text = await response.text();
+
+if (!response.ok) {
+  console.error("API Error Response:", text);
+  throw new Error(
+    `Problemas con la conexión: ${response.status} ${response.statusText}`,
+  );
+}
+
+let cursos;
+try {
+  cursos = JSON.parse(text);
+} catch (e) {
+  console.error("Failed to parse JSON. Response text:", text);
+  throw e;
+}
 
 const masoterapia = cursos.filter((curso: any) => {
   return curso.categories.some((category: any) => category.id === 47);
