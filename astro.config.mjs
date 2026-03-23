@@ -24,9 +24,5 @@ export default defineConfig({
     },
   },
   site: "https://cenakin.cl",
-  integrations: [
-    compressor({ gzip: true, brotli: false }),
-    purgecss(),
-    sitemap(),
-  ],
+  integrations: [compressor({ gzip: true }), purgecss(), sitemap()],
 });
