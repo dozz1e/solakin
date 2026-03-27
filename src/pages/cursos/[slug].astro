@@ -14,6 +14,7 @@ import DatosContacto from "@components/extras/DatosContacto.astro";
 import Plan from "@components/cursos/Plan.astro";
 import ReIn from "@components/cursos/ReIn.astro";
 import Horarios from "@components/cursos/Horarios.astro";
+import FormularioInscripcion from "@components/cursos/FormularioInscripcion.astro";
 
 export const getStaticPaths = (() => {
   return cursos.map((curso) => ({
@@ -64,6 +65,7 @@ const seo: Seo = {
             id={curso.id}
             fecha={curso.date_on_sale_to}
           />
+          <FormularioInscripcion curso={curso.name}/>
         </div>
       </div>
       <aside class="hidden lg:block top-0 sticky col-span-1">

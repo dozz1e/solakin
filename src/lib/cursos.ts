@@ -4,16 +4,19 @@ const consumerSecret = import.meta.env.WC_CONSUMER_SECRET;
 const kis = `&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
 
 let cursos = [];
-try {
-  const response = await fetch(`${base}products?category=22&per_page=50${kis}`);
-  const text = await response.text();
-  if (response.ok) {
-    cursos = JSON.parse(text);
-  } else {
-    console.error("API Error Response:", text);
+
+if (base) {
+  try {
+    const response = await fetch(`${base}products?category=22&per_page=50${kis}`);
+    const text = await response.text();
+    if (response.ok) {
+      cursos = JSON.parse(text);
+    } else {
+      console.error("API Error Response:", text);
+    }
+  } catch (e) {
+    console.error("Failed to fetch or parse courses:", e);
   }
-} catch (e) {
-  console.error("Failed to fetch or parse courses:", e);
 }
 
 const masoterapia = cursos.filter((curso: any) => {
